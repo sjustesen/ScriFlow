@@ -21,20 +21,28 @@ func Bootup() {
     r := gin.Default()
     r.LoadHTMLGlob("./templates/*")
 
+    // -- Setup Routes -- 
+    // TODO: getting quite lenghty - perhaps split up at some point?
+
     r.GET("/", func(c *gin.Context) {
       c.HTML(http.StatusOK, "index.tmpl", map[string]interface{}{
 
       })
     })
 
-    restricted := r.Group("/user")
+    users := r.Group("/users")
+    users.Use(AuthRequired)
+    {
+      users.GET("/me", profile)
+    }
+
+    restricted := r.Group("/projects")
     restricted.Use(AuthRequired) 
     {
       restricted.GET("/upload", func(c *gin.Context) {
           c.HTML(http.StatusOK, "upload.tmpl", gin.H{})
       })
       restricted.POST("/upload", uploadfile)
-      restricted.GET("/me", profile)
     }
     
     r.Run() // listen and serve o
