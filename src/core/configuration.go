@@ -1,14 +1,14 @@
 package core
 
 const (
-	ProjectFolder = "/Public"
+	ProjectFolder   = "/Public"
 	TemplatesFolder = "/Templates"
 )
 
 func GetProjectPath() string {
-	return ProjectFolder;
+	return ProjectFolder
 }
 
 func GetTemplatesFolder() string {
-	return TemplatesFolder;
+	return TemplatesFolder
 }
