@@ -1,8 +1,8 @@
 SHELL := /bin/bash
 DEFAULT = help
 
-PROJECTPATH = $(HOME)/Projekter/WebworkflowWithScribus
-BUILDPATH = $(PROJECTPATH)/build/
+PROJECTPATH = $(pwd)/
+BUILDPATH = $(pwd)build/
 
 DEBUGEXE = $(PROJECTPATH)
 
@@ -14,15 +14,11 @@ Q = @ 	# SILENCE the Bash commands ;)
 all: $(DEFAULT)
 
 help:
-	$(Q)echo "--- rust-empty (0.7 005)"
+	$(Q)echo "--- WWWS Make"
 	$(Q)echo "make run               - Runs debug executable"
 	$(Q)echo "make build             - Builds executable"
 	$(Q)echo "make clean-build       - Builds executable"
-
-.PHONY: \
-		run \
-		build \
-		clean \
+	$(Q)echo "make publish       	 - Prepares for packaging"
 
 run:
 	make build
@@ -33,23 +29,28 @@ run:
 	$(shell mkdir -p $(BUILDPATH))
 
 	# copy executable to build dir
-	$(shell mv ./onlinedtp $(BUILDPATH)) 
-	
+	$(Q)$(shell mv src/onlinedtp $(BUILDPATH)) 	
+	$(Q)$(shell cp -r src/templates/ $(BUILDPATH))
+
 	# cd into it and run scaffold init 
 	$(shell cd $(BUILDPATH) && ./onlinedtp) 
 	
 build:
 	@echo "Building using $(BUILDER)..."
 	$(Q)$(shell cd src/  && $(BUILDER) build)
-	
-	if [! -d ../build ]; then 
-		$(shell mkdir -p ../build)
-	fi
-		$(shell mv ./onlinedtp ../build)
+	@echo "Moving binary into build directory"
+
+	$(Q)$(shell mkdir -p $(BUILDPATH))
+	$(Q)$(shell mv src/onlinedtp $(BUILDPATH))
 
 clean-build:
 	@echo "Cleaning build folder... $(BUILDPATH)"
 	$(shell rm -rf $(BUILDPATH)* )
+
+publish:
+	@make build
+	@echo "Publishing files to $(pwd)$(BUILDPATH)"
+	@$(shell cp -r src/templates/ $(BUILDPATH))
 clean:
 	$(Q)$(BUILDER) clean
 	$(shell rm -dfr $(BUILDPATH) )
