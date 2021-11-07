@@ -1,8 +1,7 @@
-package database
+package core
 
 import (
-	"database/sql"
-	"time"
+	"log"
 
 	//"gorm.io/driver/mysql"
 	"gorm.io/gorm"
@@ -13,17 +12,17 @@ type DbConn struct {
 	password string
 }
 
-type Project struct {
-	ID          uint `gorm:"primaryKey"`
-	Name        string
-	ActivatedAt sql.NullTime
-	CreatedAt   time.Time
-	UpdatedAt   time.Time
-}
-
 func (db *gorm.DB) Setup() {
-	db.AutoMigrate(&Project)
+	db.AutoMigrate(&Project{})
 }
 
+func (db *gorm.DB) Open() {
+	dsn := "root@tcp(127.0.0.1:3306)/wwfs?charset=utf8mb4&parseTime=True&loc=Local"
+	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
+	if err != nil {
+		log.Fatal("Couldn't connect")
+	}
+	return db
+}
 func down() {
 }

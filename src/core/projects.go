@@ -1,10 +1,10 @@
-package importer
+package core
 
 import (
 	"os"
 	"path/filepath"
 
-	config "github.com/sjustesen/onlinedtp/core/configuration"
+	config "github.com/sjustesen/onlinedtp/core"
 )
 
 func listProjects() []string {

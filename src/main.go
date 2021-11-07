@@ -1,9 +1,14 @@
 package main
 
 import (
-    server "github.com/sjustesen/onlinedtp/server"
+	"fmt"
+
+	"github.com/sjustesen/onlinedtp/core/configuration"
+	"github.com/sjustesen/onlinedtp/server"
 )
 
 func main() {
-  server.Bootup()
+	projectpath := configuration.GetProjectPath()
+	fmt.Println(projectpath)
+	server.Bootup()
 }
