@@ -1,0 +1,18 @@
+{
+  "name": "menu-lit-element",
+  "version": "1.0.5",
+  "description": "menu-lit-element",
+  "repository": "https://github.com/glenkitchen/menu-lit-element",
+  "main": "menu-lit-element.js",
+  "module": "menu-lit-element.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Glen Kitchen <glen.kitchen@gmail.com>",
+  "license": "BSD-3-Clause",
+  "keywords": ["web component", "LitElement", "lit-html", "JavaScript"], 
+  "dependencies": {
+    "@webcomponents/webcomponentsjs": "latest",
+    "lit-element": "latest"
+  }
+}
