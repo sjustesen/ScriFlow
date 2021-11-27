@@ -1,8 +1,9 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import './Canvas.css';
 
 class Canvas extends React.Component {
    render() {
-		return <div class="canvas">canvas</div>
+		return <div className="canvas">canvas</div>
    }
 }
 

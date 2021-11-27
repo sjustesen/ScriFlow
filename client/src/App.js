@@ -10,8 +10,8 @@ function App() {
     <div className="App">
 	<Header />
     <section className="columns">
-		<div className="column is-four-fifths"><Canvas /></div>
-		<div className="column"><Toolbox /></div>
+		<div className="column"><Canvas /></div>
+		<div className="column is-one-fifth"><Toolbox /></div>
     </section>
     </div>
   );
