@@ -3,7 +3,9 @@ import './Canvas.css';
 
 class Canvas extends React.Component {
    render() {
-		return <div className="canvas">canvas</div>
+		return <div className="canvascontainer">
+               <div className="canvas">canvas</div>
+               </div>
    }
 }
 

@@ -11,7 +11,7 @@ function App() {
 	<Header />
     <section className="columns">
 		<div className="column"><Canvas /></div>
-		<div className="column is-one-fifth"><Toolbox /></div>
+		<div className="column is-narrow"><Toolbox /></div>
     </section>
     </div>
   );

@@ -1,6 +1,14 @@
-.canvas
+.canvascontainer
 {
 	display: flex;
+	background: #ddd;
+	height: calc(100vh - 92px);
+	padding: 20px;
+}
+
+.canvas {
+	display: flex;
 	background: #fff;
-	height: 85vh;
+	height: calc(100vh - 122px);
+	width: 100%;
 }
