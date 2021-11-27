@@ -1,27 +1,47 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './Canvas.css';
+import { fabric } from '../lib/fabric.min.js';
 
-class Canvas extends React.Component {
+class Canvasa extends React.Component {
    constructor(props) {
       super(props)
    }
 
    componentDidMount() {
-     this.initCanvas();
-   }
-
-   initCanvas() {
-      var canvasEl = document.getElementById(this.props.name);
-      var ctx = canvasEl.getContext('2d');
-      ctx.fillStyle = 'red';
-      ctx.fillRect(100, 100, 20, 20);
+      this.initCanvas();
    }
 
    render() {
-		return <div className="canvascontainer">
-               <div className="canvas"><canvas id="c"></canvas></div>
-               </div>
+      return <div className="canvascontainer">
+         <div className="canvas"><canvas id="c"></canvas></div>
+      </div>
    }
+
+   initCanvas() {
+      let parent = document.querySelector('.canvas');
+      
+      const canvas = new fabric.Canvas('c');
+      canvas.setHeight(parent.clientHeight);
+      canvas.setWidth(parent.clientWidth);
+
+      window.addEventListener('resize', (e) => {
+         canvas.setHeight(parent.clientHeight);
+         canvas.setWidth(parent.clientWidth);
+   
+      })
+
+      var rect = new fabric.Rect({
+         left: 100,
+         top: 100,
+         fill: 'red',
+         width: 20,
+         height: 20
+       });
+
+       canvas.add(rect);
+   }
+
+
 }
 
-export default Canvas;
+export default Canvasa;
