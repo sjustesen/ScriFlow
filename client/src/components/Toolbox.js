@@ -10,9 +10,9 @@ class Toolbox extends React.Component {
    }
    
     render() {
-        return <div class="box" style={{ width: '200px' }}>
-        <p class="title is-5">Narrow column</p>
-        <p class="subtitle">This column is only 200px wide.</p>
+        return <div className="box" style={{ width: '200px' }}>
+        <p className="title is-5">Narrow column</p>
+        <p className="subtitle">This column is only 200px wide.</p>
       </div>
    }
 }

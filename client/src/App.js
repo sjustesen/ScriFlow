@@ -10,7 +10,7 @@ function App() {
     <div className="App">
 	<Header />
     <section className="columns">
-		<div className="column"><Canvas /></div>
+		<div className="column"><Canvas name="c" /></div>
 		<div className="column is-narrow"><Toolbox /></div>
     </section>
     </div>
