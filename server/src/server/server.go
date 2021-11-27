@@ -27,6 +27,12 @@ func Bootup() {
 		c.HTML(http.StatusOK, "index.tmpl", map[string]interface{}{})
 	})
 
+	api := r.Group("/api")
+	api.Use(AuthRequired)
+	{
+		api.GET("loadfile", profile)
+	}
+
 	users := r.Group("/users")
 	users.Use(AuthRequired)
 	{
