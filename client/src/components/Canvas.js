@@ -3,9 +3,7 @@ import './Canvas.css';
 import { fabric } from '../lib/fabric.min.js';
 
 class Canvasa extends React.Component {
-   constructor(props) {
-      super(props)
-   }
+  
 
    componentDidMount() {
       this.initCanvas();
