@@ -42,9 +42,9 @@ class Topmenu extends React.Component {
 
                             <Navbar.Dropdown up={this.props.up} right={this.props.right} boxed={this.props.boxed}>
 
-                                <Navbar.Item href="#">Subitem 1</Navbar.Item>
+                                <Navbar.Item href="#">Open Library</Navbar.Item>
 
-                                <Navbar.Item href="#">Subitem 2</Navbar.Item>
+                                <Navbar.Item href="#">Local file</Navbar.Item>
 
                                 <Navbar.Divider />
 

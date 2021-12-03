@@ -1,16 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 
 import './index.css';
 import App from './App';
+import Info from './pages/Info';
+
 import reportWebVitals from './reportWebVitals';
+
+// note to self: routes looks like this: localhost:3000/#/info
+// consider using browser routing later on
 
 ReactDOM.render(
   <React.StrictMode>
-   <BrowserRouter>
-    <App />
-    </BrowserRouter>
+    <HashRouter>
+    <Routes>
+      <Route path="/" element={<App />} />
+      <Route path="/info" element={<Info/>} />    
+    </Routes>
+    </HashRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
