@@ -60,8 +60,8 @@ class Topmenu extends React.Component {
 
                     <Navbar.Container align="end">
 
-                        <Navbar.Item href="#"><Button color="primary">Log in</Button></Navbar.Item>
-                        <Navbar.Item href="#"><Button color="secondary">Sign up</Button></Navbar.Item>
+                        <Navbar.Item href="#"><Button color="primary">Log in</Button><Button color="secondary">Sign up</Button></Navbar.Item>
+                        <Navbar.Item href="#"></Navbar.Item>
 
                     </Navbar.Container>
 
