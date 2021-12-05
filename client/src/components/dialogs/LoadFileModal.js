@@ -1,18 +1,26 @@
 import React from 'react';
 import 'bulma/css/bulma.min.css';
-import { Button, Navbar } from 'react-bulma-components';
+import {
+    Modal,
+    ModalCard,
+    ModalCardBody,
+    ModalCardHead,
+    ModalCardFoot, ModalCardTitle,
+    Content, Button, MediaItem,
+    Media, Image
+} from 'react-bulma-components';
 
 class LoadFileModal extends React.Component {
 
     componentDidMount() {
-
     }
 
 
     render() {
-        <Modal
+        return (<Modal
             onClose={function noRefCheck() { }}
             showClose={false}
+            className="localFileModal"
         >
             <ModalCard>
                 <ModalCardHead>
@@ -58,15 +66,9 @@ class LoadFileModal extends React.Component {
                     hasAddons
                     renderAs={function noRefCheck() { }}
                 >
-                    <Button color="success">
-                        Like
-                    </Button>
-                    <Button>
-                        Share
-                    </Button>
                 </ModalCardFoot>
             </ModalCard>
-        </Modal>
+        </Modal>)
 
     }
 }

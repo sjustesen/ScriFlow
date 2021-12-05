@@ -5,7 +5,7 @@ import Topmenu from './components/navigation/Topmenu';
 import Header from './components/Header.js';
 import Toolbox from './components/Toolbox.js';
 import Canvasa from './components/Canvas.js';
-import LoadModal from './components/dialogs/Loadfile';
+import LoadFileModal from './components/dialogs/LoadFileModal';
 
 function App() {
   return (

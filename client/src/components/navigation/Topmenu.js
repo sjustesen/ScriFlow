@@ -1,8 +1,14 @@
 import React from 'react';
 import 'bulma/css/bulma.min.css';
 import { Button, Navbar } from 'react-bulma-components';
+import LoadFileModal from '../dialogs/LoadFileModal';
 
 class Topmenu extends React.Component {
+
+    componentDidMount() {
+        let modal = document.querySelector('.localFileModal');
+        modal.classList.toggle('is-active')
+    }
 
     render() {
 
@@ -44,7 +50,7 @@ class Topmenu extends React.Component {
 
                                 <Navbar.Item href="#">Open Library</Navbar.Item>
 
-                                <Navbar.Item href="#">Local file</Navbar.Item>
+                                <Navbar.Item>Local file</Navbar.Item>
 
                                 <Navbar.Divider />
 
@@ -61,7 +67,7 @@ class Topmenu extends React.Component {
                     <Navbar.Container align="end">
 
                         <Navbar.Item href="#"><Button color="primary">Log in</Button><Button color="secondary">Sign up</Button></Navbar.Item>
-                        <Navbar.Item href="#"></Navbar.Item>
+                        <Navbar.Item onClick=""></Navbar.Item>
 
                     </Navbar.Container>
 
