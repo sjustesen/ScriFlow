@@ -5,6 +5,7 @@ import Topmenu from './components/navigation/Topmenu';
 import Header from './components/Header.js';
 import Toolbox from './components/Toolbox.js';
 import Canvasa from './components/Canvas.js';
+import LoadModal from './components/dialogs/Loadfile';
 
 function App() {
   return (
@@ -15,7 +16,10 @@ function App() {
           <div className="column is-10"><Canvasa name="c" /></div>
           <div className="column"><Toolbox /></div>
         </section>
+        <LoadFileModal />
       </div>
+
+      
   );
 }
 
