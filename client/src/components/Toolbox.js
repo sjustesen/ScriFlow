@@ -1,7 +1,18 @@
 import React from 'react'
+import { Button } from 'react-bulma-components';
 
 class Toolbox extends React.Component {
-
+    constructor( prop ) {
+        super(prop)
+        this.state = {
+            show : false
+        }
+    }
+    
+    HandleOpenModal = () => {
+        this.setState({show : true});
+      }
+      
     render() {
         return <div className="box" style={{ width: '300px' }}>
             <div className="tabs is-centered">
@@ -20,6 +31,7 @@ class Toolbox extends React.Component {
                     </li>
                 </ul>
             </div>
+            <div id="layers"><Button onClick={this.HandleOpenModal}>Modal</Button></div>
         </div>
     }
 }

@@ -1,17 +1,13 @@
 import React from 'react';
 import 'bulma/css/bulma.min.css';
 import { Button, Navbar } from 'react-bulma-components';
-import LoadFileModal from '../dialogs/LoadFileModal';
 
 class Topmenu extends React.Component {
 
     componentDidMount() {
-        let modal = document.querySelector('.localFileModal');
-        modal.classList.toggle('is-active')
     }
 
     render() {
-
         return (
 
             <Navbar {...this.props.args}>

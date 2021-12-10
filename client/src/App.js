@@ -16,7 +16,7 @@ function App() {
           <div className="column is-10"><Canvasa name="c" /></div>
           <div className="column"><Toolbox /></div>
         </section>
-        <LoadFileModal />
+        <LoadFileModal className="loadFileModal" />
       </div>
 
       

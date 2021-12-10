@@ -12,15 +12,24 @@ import {
 
 class LoadFileModal extends React.Component {
 
+    constructor(prop) {
+        super(prop)
+        this.state = { show: false };
+    }
+    
     componentDidMount() {
+
     }
 
+    
 
     render() {
+        const showHideClassName = this.state.show ? "modal is-active" : "modal";
+          
         return (<Modal
             onClose={function noRefCheck() { }}
             showClose={false}
-            className="localFileModal"
+            className={showHideClassName}
         >
             <ModalCard>
                 <ModalCardHead>
@@ -57,6 +66,7 @@ class LoadFileModal extends React.Component {
                                     <br />
                                     If the children of the Modal is a card, the close button will be on the Card Head instead than the top-right corner You can also pass showClose = false to Card.Head to hide the close button
                                 </p>
+                                <Button>Test</Button>
                             </Content>
                         </MediaItem>
                     </Media>
