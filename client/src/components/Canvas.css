@@ -3,12 +3,12 @@
 	display: flex;
 	background: #ddd;
 	height: calc(100vh - 92px);
-	padding: 20px;
+	width: 100%;
 }
 
 .canvas {
 	display: flex;
 	background: #fff;
 	height: calc(100vh - 122px);
-	width: 100%;
+	width: inherit;
 }

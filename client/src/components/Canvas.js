@@ -13,14 +13,26 @@ class Canvasa extends React.Component {
 
    render() {
       return <div className="canvascontainer">
-         <div className="canvas"><div className="ruler" style={{ width: 60 + 'px' }}></div>
-            <canvas id="c"></canvas></div>
+         
+            <div className="ruler" style={{ width: 60 + 'px' }}></div>
+            <div className="innerframe">
+               <div className="rulerHorizontal" style={{ height: 50 + 'px', minWidth: 100 + '%' }}></div>
+               <div className="canvas">
+               <canvas id="c"></canvas>
+               </div>
+         </div>
       </div>
    }
 
    initGuides() {
-      const guides = new Guides(document.querySelector('.ruler'), {
+      const guide1 = new Guides(document.querySelector('.ruler'), {
          type: "vertical",
+      }).on("changeGuides", e => {
+         console.log(e.guides);
+      });
+
+      const guide2 = new Guides(document.querySelector('.rulerHorizontal'), {
+         type: "horizontal",
       }).on("changeGuides", e => {
          console.log(e.guides);
       });
@@ -29,26 +41,34 @@ class Canvasa extends React.Component {
       let scrollX = 0;
       let scrollY = 0;
       window.addEventListener("resize", () => {
-         guides.resize();
+         guide1.resize();
+         guide2.resize();
       });
 
       window.addEventListener("wheel", e => {
          scrollX += e.deltaX;
          scrollY += e.deltaY;
 
-         guides.scrollGuides(scrollY);
-         guides.scroll(scrollX);
+         guide1.scrollGuides(scrollY);
+         guide1.scroll(scrollX);
       });
    }
 
    initCanvas() {
+      let grandparent = document.querySelector('.canvascontainer');
       let parent = document.querySelector('.canvas');
+
+      let width = grandparent.clientWidth - 60;
+
+      parent.setAttribute('style', 'width: ' + width + 'px');
 
       const canvas = new fabric.Canvas('c');
       canvas.setHeight(parent.clientHeight);
       canvas.setWidth(parent.clientWidth);
 
       window.addEventListener('resize', (e) => {
+         let width = grandparent.clientWidth - 60;
+         parent.setAttribute('style', 'width: ' + width + 'px');
          canvas.setHeight(parent.clientHeight);
          canvas.setWidth(parent.clientWidth);
 
