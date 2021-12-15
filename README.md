@@ -16,6 +16,7 @@ The project consists of two parts, a React-powered clientside app being the fron
 * Create a media library so users can share assets between projects
 * Allow authenticated users to control the canvas	
 * Role-based authentication (based on go module Authority)
+* Extend Scribus to support ScriFlow (this would be huge!)
 
 ## Features
 to be decided
