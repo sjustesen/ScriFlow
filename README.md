@@ -3,6 +3,8 @@ A web-based workflow system for Scribus*
 
 This project is an attempt to make a workflow system, allowing multiple persons to work simultaneously on a Scribus project.
 
+*) Not affiliated with the main Scribus project. I am, however, a happy Scribus user. (^Simon) 
+
 ## Project Outline
 The project consists of two parts, a React-powered clientside app being the frontend GUI, and a lightweight server written in Go. The server will act as "middleware" maintaining connections for authenticated project users while providing realtime updates via the WebSocket protocol
 
@@ -17,5 +19,3 @@ The project consists of two parts, a React-powered clientside app being the fron
 
 ## Features
 to be decided
-
-*) Not affiliated with the main Scribus project. I am, however, a happy Scribus user. (^Simon) 
