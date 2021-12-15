@@ -1,13 +1,10 @@
 # ScriFlow
-Very much work in progress - expect everything to be experimental and nonfunctioning ;) Merry XMas!
+A web-based workflow system for Scribus
 
-Scribus - an online DTP app for various desktops - can act as a server.
-You feed into it a template on the command line and then it outputs e.g. ä PDF file.
-
-This project is an attempt to make a workflow system, allowing multiple persons to work simultaneously on a Scribus project
+This project is an attempt to make a workflow system, allowing multiple persons to work simultaneously on a Scribus project.
+Not affiliated with the main Scribus project 
 
 ## Project Outline
-
 The project consists of two parts, a React-powered clientside app being the frontend GUI, and a lightweight server written in Go. The server will act as "middleware" maintaining connections for authenticated project users while providing realtime updates via the WebSocket protocol
 
 ## Endgoals
