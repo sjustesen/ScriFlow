@@ -6,11 +6,11 @@ You feed into it a template on the command line and then it outputs e.g. ä PDF 
 
 This project is an attempt to make a workflow system, allowing multiple persons to work on a project simultaneously
 
-#Project Outline
+# Project Outline
 
-The project consists of two parts, a React-powered clientside app being the frontend GUI, and a lightweight server written in Go. The server will act as "middleware" maintaining connections for authenticated project users while providing realtime updates via websockets
+The project consists of two parts, a React-powered clientside app being the frontend GUI, and a lightweight server written in Go. The server will act as "middleware" maintaining connections for authenticated project users while providing realtime updates via the WebSocket protocol
 
-# Endgoals
+## Endgoals
 * Create a CRUD system to manage projects
 * Make the app look and feel as close as possible a native offline app.
 * Create a permission system allowing for finegrained control regarding what actions a project participant is allowed to make.
