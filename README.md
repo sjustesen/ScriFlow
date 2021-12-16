@@ -8,6 +8,10 @@ This project is an attempt to make a workflow system, allowing multiple persons 
 ## Project Outline
 The project consists of two parts, a React-powered clientside app being the frontend GUI, and a lightweight server written in Go. The server will act as "middleware" maintaining connections for authenticated project users while providing realtime updates via the WebSocket protocol
 
+## Contributions always welcome
+You're always welcome to participate in the project. Download the code and start hacking. In order to avoid that people are working on the same features,
+it might be a good idea to post your ideas in the discussion forum before getting knee-deep in work.
+
 ## Endgoals
 * Create a CRUD system to manage projects
 * Support the same project types as Scribus
