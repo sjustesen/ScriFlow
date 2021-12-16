@@ -3,7 +3,7 @@ A web-based workflow system for Scribus*
 
 This project is an attempt to make a workflow system, allowing multiple persons to work simultaneously on a Scribus project.
 I stumbled across Scribus many moons ago. However it wasn't until recently that I had the chance to actually use it for a real project.   
-After that time I thought to myself that it would be cool to try to build an ecosystem around it, just as people have done with commercially available products. But whereas traditional companies often try to force vendor lockins upon its users, we're going to let people maintain their software freedom.
+After that time I thought to myself that it would be cool to try to build an ecosystem around it, just as people have done with commercially available products. But whereas traditional companies often try to force vendor lockins upon its users, we're the total opposite: Let people maintain their software freedom!
 
 *) Not affiliated with the main Scribus project. I am, however, a happy Scribus user. (^Simon) 
 
