@@ -7,7 +7,7 @@ This project is an attempt to make a workflow system, allowing multiple persons 
 I stumbled across Scribus many moons ago. However it wasn't until recently that I had the chance to actually use it for a real project.   
 After that time I thought to myself that it would be cool to try to build an ecosystem around it, just as people have done with commercially available products. But whereas traditional companies often try to force vendor lockins upon its users, we do the opposite: Let people maintain their software freedom!
 
-*) Not affiliated with the main [Scribus](https://en.wikipedia.org/wiki/Scribus)*
+**) Not affiliated with the main [Scribus](https://en.wikipedia.org/wiki/Scribus)*
  project. I am, though, a happy [Scribus](https://en.wikipedia.org/wiki/Scribus)*
  user. (^Simon) 
 
