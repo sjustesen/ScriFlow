@@ -18,9 +18,9 @@ it might be a good idea to post your ideas in the discussion forum before gettin
 * Create a CRUD system to manage projects
 * Support the same project types as Scribus
 * Make the app look and feel as close as possible a native offline app.
-* Create a permission system allowing for finegrained control regarding what actions a project participant is allowed to make.
+* Create a permission system allowing for finegrained control regarding what actions project participants is allowed to make.
 * Create a media library so users can share assets between projects
 * Allow authenticated users to control the canvas	
 * Role-based authentication (based on go module Authority)
 * Extend Scribus with a plugin to support ScriFlow (this would be huge!]
-* Extend Scribus and ScriFlow to cloud storage technologies like NextCloud
+* Extend Scribus and ScriFlow to be able to use cloud storage platforms like NextCloud
