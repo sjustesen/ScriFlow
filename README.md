@@ -1,5 +1,5 @@
 # ScriFlow
-A web-based workflow system for Scribus*
+A web-based workflow system for [Scribus](https://en.wikipedia.org/wiki/Scribus)*
 
 This project is an attempt to make a workflow system, allowing multiple persons to work simultaneously on a Scribus project.
 I stumbled across Scribus many moons ago. However it wasn't until recently that I had the chance to actually use it for a real project.   
