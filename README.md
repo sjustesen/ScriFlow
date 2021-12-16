@@ -7,7 +7,7 @@ This project is an attempt to make a workflow system, allowing multiple persons 
 I stumbled across Scribus many moons ago. However it wasn't until recently that I had the chance to actually use it for a real project.   
 After that time I thought to myself that it would be cool to try to build an ecosystem around it, just as people have done with commercially available products. But whereas traditional companies often try to force vendor lockins upon its users, we do the opposite: Let people maintain their software freedom!
 
-*) Not affiliated with the main Scribus project. I am, however, a happy Scribus user. (^Simon) 
+*) Not affiliated with the main Scribus project. I am, though, a happy Scribus user. (^Simon) 
 
 ## Project Outline
 The project is still in its infancy, and consists of two parts, a React-powered clientside app being the frontend GUI, and a lightweight server written in Go. The server will act as "middleware" maintaining connections for authenticated project users while providing realtime updates via the WebSocket protocol
