@@ -1,6 +1,8 @@
-# Getting Started with Create React App
+# The Scriflow Client App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).  
+On the [ScriFlow](https://github.com/sjustesen/ScriFlow) Github page, navigate to the Projects tab. This will open our kanban board. On the kanban board
+all assignments prefixed with [Client] means the app composed by this part of the source tree
 
 ## Available Scripts
 
