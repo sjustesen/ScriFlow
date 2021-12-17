@@ -7,6 +7,8 @@ import (
 
 type Project struct {
 	ID          uint `gorm:"primaryKey"`
+	ProjectOwnerId uint
+	AssignedUsers []uint
 	Name        string
 	ActivatedAt sql.NullTime
 	CreatedAt   time.Time
