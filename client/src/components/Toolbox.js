@@ -1,17 +1,19 @@
 import React from 'react'
-import { Button } from 'react-bulma-components';
 
 class Toolbox extends React.Component {
-    constructor( prop ) {
-        super(prop)
-        this.state = {
-            show : false
-        }
+    // eslint-disable-next-line
+    constructor( props ) {
+        super(props)
+
+    }
+
+    LoadDemoFile = () => {
+        console.log("test...")
     }
     
     HandleOpenModal = () => {
-        this.setState({show : true});
-      }
+        this.ModalElement.current.HandleOpenModal();
+    }
       
     render() {
         return <div className="box" style={{ width: '300px' }}>
@@ -31,7 +33,9 @@ class Toolbox extends React.Component {
                     </li>
                 </ul>
             </div>
-            <div id="layers"><Button onClick={this.HandleOpenModal}>Modal</Button></div>
+            <div id="layers">
+                
+            </div>
         </div>
     }
 }

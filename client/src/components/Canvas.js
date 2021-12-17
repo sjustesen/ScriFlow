@@ -20,7 +20,7 @@ class Canvasa extends React.Component {
                <div className="canvas">
                <canvas id="c"></canvas>
                </div>
-         </div>
+         </div> 
       </div>
    }
 

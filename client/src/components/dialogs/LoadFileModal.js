@@ -1,84 +1,42 @@
 import React from 'react';
 import 'bulma/css/bulma.min.css';
-import {
-    Modal,
-    ModalCard,
-    ModalCardBody,
-    ModalCardHead,
-    ModalCardFoot, ModalCardTitle,
-    Content, Button, MediaItem,
-    Media, Image
-} from 'react-bulma-components';
+
 
 class LoadFileModal extends React.Component {
-
-    constructor(prop) {
-        super(prop)
+    constructor(props) {
+        super(props)
         this.state = { show: false };
     }
-    
-    componentDidMount() {
 
+    componentDidMount() {
     }
 
-    
+    LoadDemoFile = () => {
+        fetch('http://localhost:8080/projects/load/1')
+        .then( response => response.text())
+        .then(data => console.log(data))
+        this.HandleCloseModal()
+    }
+
+    HandleOpenModal = () => {
+        this.setState({ show: true });
+    }
+
+    HandleCloseModal = () => {
+        this.setState({ show: false })
+    }
 
     render() {
-        const showHideClassName = this.state.show ? "modal is-active" : "modal";
-          
-        return (<Modal
-            onClose={function noRefCheck() { }}
-            showClose={false}
-            className={showHideClassName}
-        >
-            <ModalCard>
-                <ModalCardHead>
-                    <ModalCardTitle>
-                        Title
-                    </ModalCardTitle>
-                </ModalCardHead>
-                <ModalCardBody>
-                    <Media>
-                        <MediaItem
-                            align="left"
-                            renderAs="figure"
-                        >
-                            <Image
-                                alt="64x64"
-                                size={64}
-                                src="http://bulma.io/images/placeholders/128x128.png"
-                            />
-                        </MediaItem>
-                        <MediaItem>
-                            <Content>
-                                <p>
-                                    <strong>
-                                        John Smith
-                                    </strong>
-                                    {' '}
-                                    <small>
-                                        @johnsmith
-                                    </small>
-                                    {' '}
-                                    <small>
-                                        31m
-                                    </small>
-                                    <br />
-                                    If the children of the Modal is a card, the close button will be on the Card Head instead than the top-right corner You can also pass showClose = false to Card.Head to hide the close button
-                                </p>
-                                <Button>Test</Button>
-                            </Content>
-                        </MediaItem>
-                    </Media>
-                </ModalCardBody>
-                <ModalCardFoot
-                    align="right"
-                    hasAddons
-                    renderAs={function noRefCheck() { }}
-                >
-                </ModalCardFoot>
-            </ModalCard>
-        </Modal>)
+        let showHideClassName = (this.state.show === true) ? "modal is-active" : "modal";
+        return (<div className={showHideClassName}>
+            <div className="modal-background"></div>
+            <div className="modal-content">
+              <p>this will be a filedialog of some sort, right now it just loads a demo<br />
+              <button onClick={this.LoadDemoFile}>Load File</button>
+              </p>
+            </div>
+            <button className="modal-close is-large" onClick={this.HandleCloseModal} aria-label="close"></button>
+        </div>)
 
     }
 }

@@ -16,5 +16,5 @@ type User struct {
 type UserGroups struct {
 	ID 			uint `gorm:primaryKey`
 	Name		string
-	UsersInGroup []User `gorm:"foreignKey:ID"`
+	UsersInGroup []User
 }
