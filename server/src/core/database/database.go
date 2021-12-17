@@ -22,7 +22,7 @@ func Setup() {
 
 func Open() *gorm.DB {
 	db, err := gorm.Open(mysql.Open(config.GetDatabaseDSN()), &gorm.Config{})
-	db.AutoMigrate(models.Project{}, models.User{})
+	db.AutoMigrate(models.Project{}, models.User{}, models.UserGroups{})
 	if err != nil {
 		log.Fatal("Couldn't connect")
 	}

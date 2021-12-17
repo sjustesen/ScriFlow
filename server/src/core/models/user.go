@@ -11,5 +11,10 @@ type User struct {
 	ActivatedAt sql.NullTime
 	CreatedAt   time.Time
 	UpdatedAt   time.Time
-	InUsergroups string
+}
+
+type UserGroups struct {
+	ID 			uint `gorm:primaryKey`
+	Name		string
+	UsersInGroup []User `gorm:"foreignKey:ID"`
 }
