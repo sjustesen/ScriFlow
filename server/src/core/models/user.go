@@ -11,5 +11,5 @@ type User struct {
 	ActivatedAt sql.NullTime
 	CreatedAt   time.Time
 	UpdatedAt   time.Time
-	InUsergroups []uint
+	InUsergroups string
 }

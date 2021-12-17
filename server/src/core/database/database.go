@@ -1,10 +1,11 @@
-package core
+package database
 
 import (
 	"log"
 	"fmt"
 	"gorm.io/gorm"
 	"gorm.io/driver/mysql"
+	"github.com/sjustesen/scriflow/core/config"
 	"github.com/sjustesen/scriflow/core/models"
 	"github.com/harranali/authority"
 
@@ -15,18 +16,17 @@ type DbConn struct {
 	password string
 }
 
-var db *gorm.DB
-
 func Setup() {
-	db.AutoMigrate(models.Project{})
+	
 }
 
 func Open() *gorm.DB {
-	dsn := "root@tcp(127.0.0.1:3306)/scriflow?charset=utf8mb4&parseTime=True&loc=Local"
-	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
+	db, err := gorm.Open(mysql.Open(config.GetDatabaseDSN()), &gorm.Config{})
+	db.AutoMigrate(models.Project{}, models.User{})
 	if err != nil {
 		log.Fatal("Couldn't connect")
 	}
+	
 	return db
 }
 
