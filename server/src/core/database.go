@@ -17,7 +17,7 @@ func (db *gorm.DB) Setup() {
 }
 
 func (db *gorm.DB) Open() {
-	dsn := "root@tcp(127.0.0.1:3306)/wwfs?charset=utf8mb4&parseTime=True&loc=Local"
+	dsn := "root@tcp(127.0.0.1:3306)/scriflow?charset=utf8mb4&parseTime=True&loc=Local"
 	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
 	if err != nil {
 		log.Fatal("Couldn't connect")
