@@ -3,7 +3,7 @@ package core
 import (
 	"log"
 
-	//"gorm.io/driver/mysql"
+	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 )
 

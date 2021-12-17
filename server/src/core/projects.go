@@ -4,7 +4,7 @@ import (
 	"os"
 	"path/filepath"
 
-	config "github.com/sjustesen/onlinedtp/core"
+	config "github.com/sjustesen/scriflow/core"
 )
 
 func listProjects() []string {

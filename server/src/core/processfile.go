@@ -2,7 +2,7 @@ package core
 
 import (
 	"github.com/probonopd/go-scribus"
-	config "github.com/sjustesen/onlinedtp/core/configuration"
+	config "github.com/sjustesen/scriflow/core/configuration"
 )
 
 func Init() {

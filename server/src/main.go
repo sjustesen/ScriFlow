@@ -3,8 +3,8 @@ package main
 import (
 	"fmt"
 
-	"github.com/sjustesen/onlinedtp/core/configuration"
-	"github.com/sjustesen/onlinedtp/server"
+	"github.com/sjustesen/scriflow/core/configuration"
+	"github.com/sjustesen/scriflow/server"
 )
 
 func main() {
