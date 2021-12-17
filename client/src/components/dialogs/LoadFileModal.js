@@ -31,7 +31,7 @@ class LoadFileModal extends React.Component {
         return (<div className={showHideClassName}>
             <div className="modal-background"></div>
             <div className="modal-content">
-              <p>this will be a filedialog of some sort, right now it just loads a demo<br />
+              <p>this will be a filedialog of some sort, right now it just loads a demo (watch the console log)<br />
               <button onClick={this.LoadDemoFile}>Load File</button>
               </p>
             </div>
