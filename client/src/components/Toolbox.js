@@ -4,8 +4,13 @@ class Toolbox extends React.Component {
     // eslint-disable-next-line
     constructor( props ) {
         super(props)
-
+        this.registerCanvasEvents();
     }
+
+    registerCanvasEvents() {
+        window.addEventListener('XmlDocLoaded', this.XMLDocumentLoaded)
+        window.addEventListener('xmlDocumentUnloaded', this.XMLDocumentUnloaded)
+     }
 
     LoadDemoFile = () => {
         console.log("test...")
@@ -37,6 +42,14 @@ class Toolbox extends React.Component {
                 
             </div>
         </div>
+    }
+
+    XMLDocumentLoaded(evt) {
+        console.dir(evt)
+    }
+
+    XMLDocumentUnloaded() {
+        
     }
 }
 

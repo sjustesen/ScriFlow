@@ -6,11 +6,11 @@ import (
 	"log"
 	"net/http"
 	"os"
+
 	"github.com/sjustesen/scriflow/core/config"
 
 	"github.com/gin-gonic/gin"
 	"github.com/probonopd/go-scribus"
-
 	// "github.com/gin-contrib/sessions"
 )
 
@@ -19,20 +19,20 @@ const (
 )
 
 func CORSMiddleware() gin.HandlerFunc {
-    return func(c *gin.Context) {
+	return func(c *gin.Context) {
 
-        c.Header("Access-Control-Allow-Origin", "*")
-        c.Header("Access-Control-Allow-Credentials", "true")
-        c.Header("Access-Control-Allow-Headers", "Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization, accept, origin, Cache-Control, X-Requested-With")
-        c.Header("Access-Control-Allow-Methods", "POST,HEAD,PATCH, OPTIONS, GET, PUT")
+		c.Header("Access-Control-Allow-Origin", "*")
+		c.Header("Access-Control-Allow-Credentials", "true")
+		c.Header("Access-Control-Allow-Headers", "Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization, accept, origin, Cache-Control, X-Requested-With")
+		c.Header("Access-Control-Allow-Methods", "POST,HEAD,PATCH, OPTIONS, GET, PUT")
 
-        if c.Request.Method == "OPTIONS" {
-            c.AbortWithStatus(204)
-            return
-        }
+		if c.Request.Method == "OPTIONS" {
+			c.AbortWithStatus(204)
+			return
+		}
 
-        c.Next()
-    }
+		c.Next()
+	}
 }
 
 func Bootup() {
@@ -73,8 +73,10 @@ func Bootup() {
 		})
 
 		restricted.GET("load/:id", func(c *gin.Context) {
-			doc, err := scribus.NewScribusDocumentFromFile(config.GetProjectPath() + "Document-1.sla")
+			systempath, err := os.Getwd()
+			doc, err := scribus.NewScribusDocumentFromFile(systempath + config.GetProjectPath() + "/doc1.sla")
 			if err != nil {
+				fmt.Println(err)
 				fmt.Println("Couldn't load XML file")
 			}
 			c.XML(http.StatusOK, doc)

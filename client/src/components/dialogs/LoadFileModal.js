@@ -11,7 +11,6 @@ class LoadFileModal extends React.Component {
 
         this.state = { 
             show: false,
-            document: {}
          };
     }
 
@@ -26,6 +25,7 @@ class LoadFileModal extends React.Component {
             let xmlutils = new XMLUtils()
             let parsed_xml = xmlutils.parseXML(data);
         
+            // TODO: move to service worker
             const evt = new CustomEvent('XmlDocLoaded', {'detail': parsed_xml } );
             window.dispatchEvent(evt);
 
