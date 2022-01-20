@@ -1,26 +1,35 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Canvas.css';
 import { fabric } from '../lib/fabric.min.js';
 import Guides from "@scena/guides";
 
 class Canvasa extends React.Component {
 
+   constructor(props) {
+      super(props)
+   }
 
    componentDidMount() {
       this.initCanvas();
       this.initGuides();
+      this.registerCanvasEvents();
+   }
+
+   registerCanvasEvents() {
+      window.addEventListener('XmlDocLoaded', this.XMLDocumentLoaded)
+      window.addEventListener('xmlDocumentUnloaded', this.XMLDocumentUnloaded)
    }
 
    render() {
       return <div className="canvascontainer">
-         
-            <div className="ruler" style={{ width: 60 + 'px' }}></div>
-            <div className="innerframe">
-               <div className="rulerHorizontal" style={{ height: 50 + 'px', minWidth: 100 + '%' }}></div>
-               <div className="canvas">
+
+         <div className="ruler" style={{ width: 60 + 'px' }}></div>
+         <div className="innerframe">
+            <div className="rulerHorizontal" style={{ height: 50 + 'px', minWidth: 100 + '%' }}></div>
+            <div className="canvas">
                <canvas id="c"></canvas>
-               </div>
-         </div> 
+            </div>
+         </div>
       </div>
    }
 
@@ -85,6 +94,16 @@ class Canvasa extends React.Component {
       canvas.add(rect);
    }
 
+   // event
+   XMLDocumentLoaded = (data) => {
+      console.log('xmldoc loaded');
+      console.dir(data)
+   }
+
+   // event
+   XMLDocumentUnloaded() {
+      console.log('xmldoc unloaded');
+   }
 
 }
 

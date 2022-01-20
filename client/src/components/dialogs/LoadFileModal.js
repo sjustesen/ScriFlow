@@ -1,20 +1,35 @@
 import React from 'react';
+import XMLUtils from '../../utils/xmlutils';
 import 'bulma/css/bulma.min.css';
+import EventService from '../../services/eventservice';
 
 
 class LoadFileModal extends React.Component {
+
     constructor(props) {
         super(props)
-        this.state = { show: false };
+
+        this.state = { 
+            show: false,
+            document: {}
+         };
     }
 
     componentDidMount() {
+        this.eventService = new EventService();
     }
 
     LoadDemoFile = () => {
         fetch('http://localhost:8080/projects/load/1')
         .then( response => response.text())
-        .then(data => console.log(data))
+        .then(data => {
+            let xmlutils = new XMLUtils()
+            let parsed_xml = xmlutils.parseXML(data);
+        
+            const evt = new CustomEvent('XmlDocLoaded', {'detail': parsed_xml } );
+            window.dispatchEvent(evt);
+
+        })
         this.HandleCloseModal()
     }
 
