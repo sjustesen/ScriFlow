@@ -22,6 +22,7 @@ class LoadFileModal extends React.Component {
     LoadDemoFile = () => {
         const docService = new DocumentService();
         let response = docService.loadFromUrl('http://localhost:8080/projects/load/1')
+        
         if (response.ok) {
             console.dir(response)
             const doc = new SLADocument(response.data);
