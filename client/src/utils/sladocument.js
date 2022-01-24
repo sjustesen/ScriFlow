@@ -56,6 +56,7 @@ export default class SLADocument {
             };
             colors.set(color.attributes[0].nodeValue.toLowerCase(), colorAttribs)
         }
+        console.dir(colors);
         return colors;
     }
 
