@@ -1,9 +1,9 @@
 export default class EventService {
     
-    subscriptions = {};
-
     // credits: https://www.webtips.dev/intro-to-design-patterns-create-your-own-pubsub-library
     
+    subscriptions = {};
+
     /**
      * @method publish
      *
@@ -21,6 +21,9 @@ export default class EventService {
                 if (key === event) {
                     for (const currentInstance of this.subscriptions[key]) {
                         currentInstance.callback(data);
+
+                        const evt = new CustomEvent(event, {'detail': data } );
+                        window.dispatchEvent(evt);
                     }
                 }
             }

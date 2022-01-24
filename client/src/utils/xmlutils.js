@@ -1,3 +1,11 @@
+/* 
+    (c) 2022 Simon Justesen
+    This class contains functions to manipulate generic XML documents BEFORE it is turned 
+    into SLADocuments (see utils/sladocuments.js).
+    
+    MIT Licensed
+    */
+
 export default class XMLUtils {
 
     parseXML(val) {

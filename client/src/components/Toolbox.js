@@ -1,15 +1,16 @@
 import React from 'react'
+import EventService from '../services/eventservice';
 
 class Toolbox extends React.Component {
     // eslint-disable-next-line
     constructor( props ) {
         super(props)
-        this.registerCanvasEvents();
+        this.registerEvents();
     }
 
-    registerCanvasEvents() {
-        window.addEventListener('XmlDocLoaded', this.XMLDocumentLoaded)
-        window.addEventListener('xmlDocumentUnloaded', this.XMLDocumentUnloaded)
+    registerEvents() {
+        this.eventService = new EventService();
+        this.eventService.subscribe('UpdateLayerPanel', this.UpdateLayerPanel);
      }
 
     LoadDemoFile = () => {
@@ -28,6 +29,7 @@ class Toolbox extends React.Component {
                         <a href="#layers">
                             <span className="icon is-small"><i className="fas fa-image" aria-hidden="true"></i></span>
                             <span>Layers</span>
+                            <div id="LayerStack"></div>
                         </a>
                     </li>
                     <li>
@@ -44,13 +46,10 @@ class Toolbox extends React.Component {
         </div>
     }
 
-    XMLDocumentLoaded(evt) {
-        console.dir(evt)
+    UpdateLayerPanel(data) {
+        console.log('Update Layers')
     }
 
-    XMLDocumentUnloaded() {
-        
-    }
 }
 
 export default Toolbox;

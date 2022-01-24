@@ -2,7 +2,7 @@ import React from 'react';
 import XMLUtils from '../../utils/xmlutils';
 import 'bulma/css/bulma.min.css';
 import EventService from '../../services/eventservice';
-
+import SLADocument from '../../utils/sladocument';
 
 class LoadFileModal extends React.Component {
 
@@ -16,18 +16,26 @@ class LoadFileModal extends React.Component {
 
     componentDidMount() {
         this.eventService = new EventService();
+        this.eventService.subscribe('UpdateLayerPanel', this.UpdateLayersPanelEvent)
     }
 
     LoadDemoFile = () => {
         fetch('http://localhost:8080/projects/load/1')
         .then( response => response.text())
-        .then(data => {
+        .then(fetched_data => {
             let xmlutils = new XMLUtils()
-            let parsed_xml = xmlutils.parseXML(data);
+            let parsed_xml = xmlutils.parseXML(fetched_data);
         
             // TODO: move to service worker
-            const evt = new CustomEvent('XmlDocLoaded', {'detail': parsed_xml } );
-            window.dispatchEvent(evt);
+           var doc = new SLADocument(parsed_xml);
+        
+           // the initial state of the layers
+           var properties = doc.getDocumentProperties();
+           console.dir(properties)
+           
+           // signal subscribers to update the layers panel
+           //this.eventService.publish('UpdateLayerPanel', properties)
+            
 
         })
         this.HandleCloseModal()
@@ -39,6 +47,11 @@ class LoadFileModal extends React.Component {
 
     HandleCloseModal = () => {
         this.setState({ show: false })
+    }
+
+    UpdateLayersPanelEvent(data) {
+        console.log('updating')
+        console.log(data)
     }
 
     render() {

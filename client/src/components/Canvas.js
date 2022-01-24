@@ -17,7 +17,6 @@ class Canvasa extends React.Component {
 
    registerCanvasEvents() {
       window.addEventListener('XmlDocLoaded', this.XMLDocumentLoaded)
-      window.addEventListener('xmlDocumentUnloaded', this.XMLDocumentUnloaded)
    }
 
    render() {
@@ -97,7 +96,6 @@ class Canvasa extends React.Component {
    // event
    XMLDocumentLoaded = (data) => {
       console.log('xmldoc loaded');
-      console.dir(data)
    }
 
    // event
