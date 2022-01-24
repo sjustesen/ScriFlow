@@ -30,8 +30,8 @@ class LoadFileModal extends React.Component {
            var doc = new SLADocument(parsed_xml);
         
            // the initial state of the layers
-           var properties = doc.getDocumentProperties();
-                      
+           var properties = doc.getColors();    
+           console.dir(properties.get('black'))
            // signal subscribers to update the layers panel
            //this.eventService.publish('UpdateLayerPanel', properties)
             

@@ -20,16 +20,46 @@ export default class SLADocument {
     getDocumentProperties() {
         let attributes = new Map();
         var documentNode = this.xmldata.querySelector('DOCUMENT');
-            
-        // loop though DOCUMENT xmlnode and put attributes in a map
-            // I'm lowercasing every nodeName as the Scribus SLA document uses inconsistent 
-            // word casing
 
-            for (let i = 0; i < documentNode.attributes.length; i++) {
-                let attr = documentNode.attributes.item(i)
-                attributes.set(attr.nodeName.toLowerCase(), attr.nodeValue);
-            };
+        // loop though DOCUMENT xmlnode and put attributes in a map
+        // I'm lowercasing every nodeName as the Scribus SLA document uses inconsistent 
+        // word casing
+
+        for (let i = 0; i < documentNode.attributes.length; i++) {
+            let attr = documentNode.attributes.item(i)
+            attributes.set(attr.nodeName.toLowerCase(), attr.nodeValue);
+        };
         return attributes;
+    }
+
+    getColors() {
+        let colors = new Map();
+        var colorNodes = this.xmldata.querySelectorAll('COLOR');
+
+        for (var color of colorNodes) {
+            let colorAttribs = [];
+            for (let i = 0; i < color.attributes.length; i++) {
+                let attr = color.attributes.item(i);
+                colorAttribs.push({ attribute: attr.nodeName.toLowerCase(), value: attr.nodeValue});
+            };
+            colors.set(color.attributes[0].nodeValue.toLowerCase(), colorAttribs)
+        }
+        return colors;
+    }
+
+    getColorInfo() {
+        let colors = new Map();
+        var colorNodes = this.xmldata.querySelectorAll('COLOR');
+
+        for (var color of colorNodes) {
+            let colorAttribs = [];
+            for (let i = 0; i < color.attributes.length; i++) {
+                let attr = color.attributes.item(i);
+                colorAttribs.push({ attribute: attr.nodeName.toLowerCase(), value: attr.nodeValue});
+            };
+            colors.set(color.attributes[0].nodeValue.toLowerCase(), colorAttribs)
+        }
+        return colors;
     }
 
     /* get the state of the layers */
@@ -45,8 +75,8 @@ export default class SLADocument {
         return layerdata;
     }
 
-    getLayer(id) {
-        let layer= this.xmldata.querySelectorAll('LAYERS')[id];
+    getLayerByIndex(id) {
+        let layer = this.xmldata.querySelectorAll('LAYERS')[id];
         return layer;
     }
 }
