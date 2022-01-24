@@ -15,6 +15,18 @@ export default class SLADocument {
         this.xmldata = xmldata;
     }
 
+    // stub
+    getProperty(propname, attribute) {
+        let attributes = new Map();
+        var documentNode = this.xmldata.querySelector(propname);
+
+    }
+
+    // stub
+    setProperty(propname, value) {
+
+    }
+
     /* List the overall properties of the document */
 
     getDocumentProperties() {
@@ -26,7 +38,7 @@ export default class SLADocument {
         // word casing
 
         for (let i = 0; i < documentNode.attributes.length; i++) {
-            let attr = documentNode.attributes.item(i)
+            let attr = documentNode.attributes.item(i);
             attributes.set(attr.nodeName.toLowerCase(), attr.nodeValue);
         };
         return attributes;
@@ -47,19 +59,8 @@ export default class SLADocument {
         return colors;
     }
 
-    getColorInfo() {
-        let colors = new Map();
-        var colorNodes = this.xmldata.querySelectorAll('COLOR');
-
-        for (var color of colorNodes) {
-            let colorAttribs = [];
-            for (let i = 0; i < color.attributes.length; i++) {
-                let attr = color.attributes.item(i);
-                colorAttribs.push({ attribute: attr.nodeName.toLowerCase(), value: attr.nodeValue});
-            };
-            colors.set(color.attributes[0].nodeValue.toLowerCase(), colorAttribs)
-        }
-        return colors;
+    getColorInfo(colorname) {
+        //this.getColors()
     }
 
     /* get the state of the layers */
