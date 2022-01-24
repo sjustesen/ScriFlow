@@ -18,14 +18,18 @@ export default class SLADocument {
     /* List the overall properties of the document */
 
     getDocumentProperties() {
-        let attributes = Set();
+        let attributes = new Map();
         var documentNode = this.xmldata.querySelector('DOCUMENT');
+            
+        // loop though DOCUMENT xmlnode and put attributes in a map
+            // I'm lowercasing every nodeName as the Scribus SLA document uses inconsistent 
+            // word casing
 
-            // loop though DOCUMENT node and put everything in a set
-            for (let attribute of documentNode.attributes) {
-                attributes.add(attribute);
+            for (let i = 0; i < documentNode.attributes.length; i++) {
+                let attr = documentNode.attributes.item(i)
+                attributes.set(attr.nodeName.toLowerCase(), attr.nodeValue);
             };
-        return documentNode;
+        return attributes;
     }
 
     /* get the state of the layers */
@@ -42,7 +46,7 @@ export default class SLADocument {
     }
 
     getLayer(id) {
-        let layers = this.xmldata
-        return Layers;
+        let layer= this.xmldata.querySelectorAll('LAYERS')[id];
+        return layer;
     }
 }

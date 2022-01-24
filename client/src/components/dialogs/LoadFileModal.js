@@ -31,8 +31,7 @@ class LoadFileModal extends React.Component {
         
            // the initial state of the layers
            var properties = doc.getDocumentProperties();
-           console.dir(properties)
-           
+                      
            // signal subscribers to update the layers panel
            //this.eventService.publish('UpdateLayerPanel', properties)
             
