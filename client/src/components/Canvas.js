@@ -17,6 +17,10 @@ class Canvasa extends React.Component {
 
    registerCanvasEvents() {
       window.addEventListener('XmlDocLoaded', this.XMLDocumentLoaded)
+      window.addEventListener('UpdateLayersPanel', (event)=> {
+         console.log('Update Layer Panel signaled..')
+      })
+
    }
 
    render() {

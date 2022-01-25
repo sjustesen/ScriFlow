@@ -56,7 +56,6 @@ export default class SLADocument {
             };
             colors.set(color.attributes[0].nodeValue.toLowerCase(), colorAttribs)
         }
-        console.dir(colors);
         return colors;
     }
 
@@ -68,13 +67,20 @@ export default class SLADocument {
 
     getLayers() {
         const layerdata = this.xmldata.querySelectorAll('LAYERS');
-        let parser = new DOMParser();
-        layerdata.forEach(layer_node => {
-            layer_node.attributes.forEach(attribute => {
+       
+        let layers = new Map();
+        let node_count = 0;
 
-            })
+        layerdata.forEach(layer_node => {
+            let nodeAttributes = [];
+            for (let i = 0; i < layer_node.attributes.length; i++) {
+                let attr = layer_node.attributes.item(i);
+                nodeAttributes.push({ attribute: attr.nodeName.toLowerCase(), value: attr.nodeValue});
+            };
+            layers.set('layer_' + node_count, nodeAttributes)
+            node_count++;
         });
-        return layerdata;
+        return layers;
     }
 
     getLayerByIndex(id) {
