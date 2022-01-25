@@ -3,25 +3,27 @@ import EventService from '../services/eventservice';
 
 class Toolbox extends React.Component {
     // eslint-disable-next-line
-    constructor( props ) {
+    constructor(props) {
         super(props)
-        this.registerEvents();
+        this.state = {
+            layers: []
+        }
     }
 
-    registerEvents() {
-        this.eventService = new EventService();
-        this.eventService.subscribe('UpdateLayerPanel', this.UpdateLayerPanel);
-     }
+    componentDidMount() {
+        window.addEventListener('LayersPanelChanged', (event) => {
+            this.setState({ layers: event.detail })
+        });
 
-    LoadDemoFile = () => {
-        console.log("test...")
+       
     }
-    
+
     HandleOpenModal = () => {
         this.ModalElement.current.HandleOpenModal();
     }
-      
+
     render() {
+        
         return <div className="box" style={{ width: '300px' }}>
             <div className="tabs is-centered">
                 <ul>
@@ -29,7 +31,11 @@ class Toolbox extends React.Component {
                         <a href="#layers">
                             <span className="icon is-small"><i className="fas fa-image" aria-hidden="true"></i></span>
                             <span>Layers</span>
-                            <div id="LayerStack"></div>
+                            <div id="LayerStack">
+                                <ul>
+                                    {this.state.layers.forEach(item => <li>{item.name}</li>)}
+                                </ul>
+                            </div>
                         </a>
                     </li>
                     <li>
@@ -41,13 +47,9 @@ class Toolbox extends React.Component {
                 </ul>
             </div>
             <div id="layers">
-                
+
             </div>
         </div>
-    }
-
-    UpdateLayerPanel(data) {
-        console.log('Update Layers')
     }
 
 }

@@ -9,6 +9,7 @@ class LoadFileModal extends React.Component {
     constructor(props) {
         super(props)
 
+        this.eventService = new EventService();
         this.state = {
             show: false,
         };
@@ -29,8 +30,9 @@ class LoadFileModal extends React.Component {
     }
 
     componentDidMount() {
-        this.eventService = new EventService();
-        this.eventService.subscribe('UpdateLayerPanel', this.UpdateLayersPanelEvent)
+        this.eventService.subscribe('LayersPanelChanged', (event) => {
+            console.dir('LayersPanelChanged')
+        })
     }
 
     LoadDemoFile = () => {
@@ -42,9 +44,9 @@ class LoadFileModal extends React.Component {
                 const doc = new SLADocument(file);
 
                 // grab the initial state of the layers
-                var layers = doc.getLayers();
+                let layers = doc.getLayers();
                 // signal subscribers to update the layers panel
-                this.eventService.publish('UpdateLayersPanel', layers)
+                this.eventService.publish('LayersPanelChanged', layers)
 
                 // TODO: move to service worker
             }
@@ -60,13 +62,6 @@ class LoadFileModal extends React.Component {
     HandleCloseModal = () => {
         this.setState({ show: false })
     }
-
-    UpdateLayersPanelEvent(data) {
-        console.log('updating')
-        console.log(data)
-    }
-
-
 }
 
 export default LoadFileModal;

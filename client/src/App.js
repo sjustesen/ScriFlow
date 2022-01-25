@@ -3,9 +3,9 @@ import './App.css';
 
 import Topmenu from './components/navigation/Topmenu';
 import Header from './components/Header.js';
-import Toolbox from './components/Toolbox.js';
 import Canvasa from './components/Canvas.js';
 import LoadFileModal from './components/dialogs/LoadFileModal';
+import Toolbox from './components/Toolbox.js';
 
 class App extends React.Component {
   constructor(props) {
