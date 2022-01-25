@@ -1,21 +1,23 @@
 import React from 'react'
-import EventService from '../services/eventservice';
 
 class Toolbox extends React.Component {
     // eslint-disable-next-line
     constructor(props) {
         super(props)
         this.state = {
-            layers: []
+            layers: [],
+            colors: []
         }
     }
 
     componentDidMount() {
         window.addEventListener('LayersPanelChanged', (event) => {
             this.setState({ layers: event.detail })
-            console.dir(this.state)
         });
-
+        
+        window.addEventListener('ColorPanelChanged', (event) => {
+            this.setState({ colors: event.detail })
+        });
 
     }
 

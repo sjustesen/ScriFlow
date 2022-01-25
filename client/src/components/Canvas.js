@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './Canvas.css';
 import { fabric } from '../lib/fabric.min.js';
 import Guides from "@scena/guides";
 
 class Canvasa extends React.Component {
 
-   constructor(props) {
+  /* constructor(props) {
       super(props)
-   }
+   } */
 
    componentDidMount() {
       this.initCanvas();
@@ -16,7 +16,7 @@ class Canvasa extends React.Component {
    }
 
    registerCanvasEvents() {
-      window.addEventListener('XmlDocLoaded', this.XMLDocumentLoaded)
+      window.addEventListener('XmlDocumentLoaded', this.XMLDocumentLoaded)
       window.addEventListener('LayersPanelChanged', ()=> {
          console.log('Update Layer Panel signaled..')
       })

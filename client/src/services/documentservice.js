@@ -1,10 +1,7 @@
 import XMLUtils from '../utils/xmlutils';
 
 export default class DocumentService {
-    constructor() {
-
-    }
-
+   
     async loadFromUrl(url) {
       var res =  await fetch(url)
             .then(response => response.text())

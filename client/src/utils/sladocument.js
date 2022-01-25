@@ -15,11 +15,41 @@ export default class SLADocument {
         this.xmldata = xmldata;
     }
 
-    // stub
-    getProperty(propname, attribute) {
-        let attributes = new Map();
-        var documentNode = this.xmldata.querySelector(propname);
+    // get the elements of the SLADoc by property name
 
+    getElement(propname) {
+        let result = [];
+        let xmlattributes = new Map();
+        let xmlelements = this.xmldata.querySelectorAll(propname);
+
+        if (xmlelements.length === 0) {
+            throw Error("Sorry, there are no tag(s) named " +propname);
+        }
+        
+        let elementId = 0;
+        for (var element of xmlelements) {
+            let elementName = 'element_' + elementId;
+        
+            for (let i = 0; i < element.attributes.length; i++) {
+                let attr = element.attributes.item(i);
+                let nodename = attr.nodeName.toLowerCase();
+                xmlattributes.set(nodename, attr.nodeValue);
+
+                if (nodename == 'name') {
+                    elementName = attr.nodeValue;
+                }
+            };
+           
+            result.push({ 
+                id: elementName.trim().toLowerCase().replace(' ', '_'),
+                name: elementName, 
+                type: propname.toLowerCase(), 
+                attributes: xmlattributes
+            })
+
+            elementId++;
+        }
+        return result;
     }
 
     // stub
@@ -30,65 +60,47 @@ export default class SLADocument {
     /* List the overall properties of the document */
 
     getDocumentProperties() {
-        let attributes = new Map();
-        var documentNode = this.xmldata.querySelector('DOCUMENT');
-
-        // loop though DOCUMENT xmlnode and put attributes in a map
-        // I'm lowercasing every nodeName as the Scribus SLA document uses inconsistent 
-        // word casing
-
-        for (let i = 0; i < documentNode.attributes.length; i++) {
-            let attr = documentNode.attributes.item(i);
-            attributes.set(attr.nodeName.toLowerCase(), attr.nodeValue);
-        };
-        return attributes;
+        let styles = this.getElement('STYLE');
+        return styles;
     }
 
     getPageObjects() {
-        let pageObject = this.xmldata.querySelector('PAGEOBJECT');
-        let attributes = new Map();
-
-        for (let i = 0; i < pageObject.attributes.length; i++) {
-            let attr = pageObject.attributes.item(i);
-            attributes.set(attr.nodeName.toLowerCase(), attr.nodeValue);
-        };
-
-        return attributes;
+        let pageobjects = this.getElement('PAGEOBJECT');
+        // note: This has subnodes
+        return pageobjects;
     }
 
     getMasterpage(uid) {
-        
+        let masterpage = this.getElement('MASTERPAGE');
+        return masterpage;
     }
 
     getMasterpages() {
-        
+        let masterpages = this.getElement('MASTERPAGE');
+        return masterpages;
     }
 
     getStyles() {
-
+        let styles = this.getElement('STYLE');
+        return styles;
     }
 
     getStyle() {
-        
+        let styles = this.getElement('STYLE');
+        return styles;
     }
 
     getColors() {
-        let colors = new Map();
-        var colorNodes = this.xmldata.querySelectorAll('COLOR');
-
-        for (var color of colorNodes) {
-            let colorAttribs = [];
-            for (let i = 0; i < color.attributes.length; i++) {
-                let attr = color.attributes.item(i);
-                colorAttribs.push({ attribute: attr.nodeName.toLowerCase(), value: attr.nodeValue});
-            };
-            colors.set(color.attributes[0].nodeValue.toLowerCase(), colorAttribs)
-        }
+        let colors = this.getElement("COLOR");
         return colors;
     }
 
     getColorInfo(colorname) {
         //this.getColors()
+    }
+
+    getLPI() {
+        return this.getElement("LPI");
     }
 
     /* get the state of the layers */
