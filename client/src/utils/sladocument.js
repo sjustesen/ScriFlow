@@ -3,6 +3,10 @@
     This class contains functions to work with SLADocuments AFTER they've been parsed into the JS DOM hierachy.
     Right now I'm using built-in queryselectors to inspect nodes, perhaps there are better and/or faster ways of doing this,
     like on-the-fly parsing. 
+
+    Note: All XML Element attributes are converted to lowercase to make up for inconsistencies in the SLA Document format.
+
+    TODO: Import children of elements
     
     MIT Licensed
     */

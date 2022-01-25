@@ -45,14 +45,14 @@ class LoadFileModal extends React.Component {
 
                 // grab the initial state of the layers
                 let layers = doc.getLayers();
-                let page_objects = doc.getColors();
+                let page_objects = doc.getPageObjects();
 
                 console.dir(page_objects)
                 
                 // signal subscribers to update the layers panel
                 this.eventService.publish('LayersPanelChanged', layers)
                 this.eventService.publish('XMLDocumentLoaded', page_objects)
-                
+
             }
         });
 
