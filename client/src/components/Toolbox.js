@@ -13,9 +13,10 @@ class Toolbox extends React.Component {
     componentDidMount() {
         window.addEventListener('LayersPanelChanged', (event) => {
             this.setState({ layers: event.detail })
+            console.dir(this.state)
         });
 
-       
+
     }
 
     HandleOpenModal = () => {
@@ -23,7 +24,7 @@ class Toolbox extends React.Component {
     }
 
     render() {
-        
+
         return <div className="box" style={{ width: '300px' }}>
             <div className="tabs is-centered">
                 <ul>
@@ -31,11 +32,6 @@ class Toolbox extends React.Component {
                         <a href="#layers">
                             <span className="icon is-small"><i className="fas fa-image" aria-hidden="true"></i></span>
                             <span>Layers</span>
-                            <div id="LayerStack">
-                                <ul>
-                                    {this.state.layers.forEach(item => <li>{item.name}</li>)}
-                                </ul>
-                            </div>
                         </a>
                     </li>
                     <li>
@@ -47,7 +43,10 @@ class Toolbox extends React.Component {
                 </ul>
             </div>
             <div id="layers">
-
+                <div className="LayerStack">
+                    {this.state.layers.map((item, index) =>
+                        <div key={index}>{item.properties.name}</div>)}
+                </div>
             </div>
         </div>
     }

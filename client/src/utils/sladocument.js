@@ -7,7 +7,7 @@
     MIT Licensed
     */
 
-import Layers from "../components/Layers";
+import Layer from "../components/Layer";
 
 export default class SLADocument {
 
@@ -44,6 +44,34 @@ export default class SLADocument {
         return attributes;
     }
 
+    getPageObjects() {
+        let pageObject = this.xmldata.querySelector('PAGEOBJECT');
+        let attributes = new Map();
+
+        for (let i = 0; i < pageObject.attributes.length; i++) {
+            let attr = pageObject.attributes.item(i);
+            attributes.set(attr.nodeName.toLowerCase(), attr.nodeValue);
+        };
+
+        return attributes;
+    }
+
+    getMasterpage(uid) {
+        
+    }
+
+    getMasterpages() {
+        
+    }
+
+    getStyles() {
+
+    }
+
+    getStyle() {
+        
+    }
+
     getColors() {
         let colors = new Map();
         var colorNodes = this.xmldata.querySelectorAll('COLOR');
@@ -68,7 +96,7 @@ export default class SLADocument {
     getLayers() {
         const layerdata = this.xmldata.querySelectorAll('LAYERS');
        
-        let layers = new Map();
+        let layers = [];
         let node_count = 0;
 
         layerdata.forEach(layer_node => {
@@ -77,7 +105,8 @@ export default class SLADocument {
                 let attr = layer_node.attributes.item(i);
                 nodeAttributes.push({ attribute: attr.nodeName.toLowerCase(), value: attr.nodeValue});
             };
-            layers.set('layer_' + node_count, nodeAttributes)
+            let layer = new Layer('layer_' + node_count, nodeAttributes);
+            layers.push({ key: 'layer_'+node_count, properties: layer })
             node_count++;
         });
         return layers;

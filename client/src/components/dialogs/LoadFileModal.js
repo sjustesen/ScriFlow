@@ -45,10 +45,12 @@ class LoadFileModal extends React.Component {
 
                 // grab the initial state of the layers
                 let layers = doc.getLayers();
+                let page_objects = doc.getPageObjects();
+                
                 // signal subscribers to update the layers panel
                 this.eventService.publish('LayersPanelChanged', layers)
-
-                // TODO: move to service worker
+                this.eventService.publish('XMLDocumentLoaded', page_objects)
+                
             }
         });
 
