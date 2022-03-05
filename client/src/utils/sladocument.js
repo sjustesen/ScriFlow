@@ -12,6 +12,7 @@
     */
 
 import Layer from "../components/Layer";
+import SLAUtils from "./slautils";
 
 export default class SLADocument {
 

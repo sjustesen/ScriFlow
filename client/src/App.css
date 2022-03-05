@@ -11,3 +11,7 @@ html { background: #ccc; }
   display: flex;
   color: white;
 }
+
+..colorbox {
+  background-color: #000;
+}

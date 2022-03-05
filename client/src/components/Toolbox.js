@@ -1,10 +1,12 @@
 import React from 'react'
+import Color from './Color';
 
 class Toolbox extends React.Component {
     // eslint-disable-next-line
     constructor(props) {
         super(props)
         this.state = {
+            activeTab: '',
             layers: [],
             colors: []
         }
@@ -14,10 +16,14 @@ class Toolbox extends React.Component {
         window.addEventListener('LayersPanelChanged', (event) => {
             this.setState({ layers: event.detail })
         });
-        
+
         window.addEventListener('ColorPanelChanged', (event) => {
             this.setState({ colors: event.detail })
         });
+
+    }
+
+    toggleTab() {
 
     }
 
@@ -49,6 +55,11 @@ class Toolbox extends React.Component {
                     {this.state.layers.map((item, index) =>
                         <div key={index}>{item.properties.name}</div>)}
                 </div>
+            </div>
+            <div className='ColorSwatches'>
+                {this.state.colors.map((item, index) =>
+                    <Color key={index} item={item}></Color>
+                )}
             </div>
         </div>
     }

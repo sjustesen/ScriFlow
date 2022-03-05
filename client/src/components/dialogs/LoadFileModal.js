@@ -21,7 +21,7 @@ class LoadFileModal extends React.Component {
             <div className="modal-background"></div>
             <div className="modal-content">
                 <p>this will be a filedialog of some sort, right now it just loads a demo (run the server and watch the console log)<br />
-                    <button onClick={this.LoadDemoFile}>Load File</button>
+                    <button onClick={this.LoadFile}>Load File</button>
                 </p>
             </div>
             <button className="modal-close is-large" onClick={this.HandleCloseModal} aria-label="close"></button>
@@ -33,9 +33,13 @@ class LoadFileModal extends React.Component {
         this.eventService.subscribe('LayersPanelChanged', (event) => {
             console.dir('LayersPanelChanged')
         })
+
+        this.eventService.subscribe('ColorPanelChanged', (event) => {
+            console.dir('LayersPanelChanged')
+        })
     }
 
-    LoadDemoFile = () => {
+    LoadFile = () => {
         const docService = new DocumentService();
         let res = docService.loadFromUrl('http://localhost:8080/projects/load/1')
         res.then((file) => {
@@ -44,13 +48,13 @@ class LoadFileModal extends React.Component {
                 const doc = new SLADocument(file);
 
                 // grab the initial state of the layers
-                let layers = doc.getLayers();
                 let page_objects = doc.getPageObjects();
-
-                console.dir(page_objects)
+                let colors = doc.getColors();
+                let layers = doc.getLayers();
                 
                 // signal subscribers to update the layers panel
                 this.eventService.publish('LayersPanelChanged', layers)
+                this.eventService.publish('ColorPanelChanged', colors)
                 this.eventService.publish('XMLDocumentLoaded', page_objects)
 
             }
