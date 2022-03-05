@@ -38,7 +38,10 @@ class Color extends React.Component {
         let name = this.props.item.name;
     
         return (
-        <div className='togglebutton'><div className='colorbox' style={{backgroundColor: `rgb(${swatch_color.toString()})`}}></div><div>{name}</div></div> 
+        <div className='togglebutton'>
+            <div className='colorbox' style={{backgroundColor: `rgb(${swatch_color.toString()})`}}></div>
+            <div>{name}</div>
+        </div> 
         )
     }
 
