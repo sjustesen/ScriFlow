@@ -1,19 +1,20 @@
 import React from 'react'
 import Color from './Color';
+import Layer from './Layer';
 
 class Toolbox extends React.Component {
     // eslint-disable-next-line
     constructor(props) {
         super(props)
         this.state = {
-            activeTab: '',
+            activeTab: 'layersTab',
             layers: [],
             colors: []
         }
     }
 
     componentDidMount() {
-        window.addEventListener('LayersPanelChanged', (event) => {
+       window.addEventListener('LayersPanelChanged', (event) => {
             this.setState({ layers: event.detail })
         });
 
@@ -23,8 +24,16 @@ class Toolbox extends React.Component {
 
     }
 
-    toggleTab() {
-
+    toggleTab(tabId) {
+        // first hide the other tabs
+        ['layers','swatches'].forEach(element => {
+            let tabToHide = document.getElementById(element);
+            tabToHide.style.display='none';
+            document.querySelector('#'+element+'Tab').classList.remove('is-active');
+        });
+        
+        document.querySelector('#'+tabId).style.display='block';
+        document.querySelector('#'+tabId+'Tab').classList.add('is-active');
     }
 
     HandleOpenModal = () => {
@@ -36,14 +45,14 @@ class Toolbox extends React.Component {
         return <div className="box" style={{ width: '300px' }}>
             <div className="tabs is-centered">
                 <ul>
-                    <li className="is-active">
-                        <a href="#layers">
+                    <li className='listitem' id="layersTab">
+                        <a href="#" onClick={()=> this.toggleTab('layers')}>
                             <span className="icon is-small"><i className="fas fa-image" aria-hidden="true"></i></span>
                             <span>Layers</span>
                         </a>
                     </li>
-                    <li>
-                        <a href="#colors">
+                    <li className='listitem' id="swatchesTab">
+                        <a href="#" onClick={()=> this.toggleTab('swatches')}>
                             <span className="icon is-small"><i className="fas fa-music" aria-hidden="true"></i></span>
                             <span>Colors</span>
                         </a>
@@ -53,13 +62,16 @@ class Toolbox extends React.Component {
             <div id="layers">
                 <div className="LayerStack">
                     {this.state.layers.map((item, index) =>
-                        <div key={index}>{item.properties.name}</div>)}
+                        <Layer key={index} item={item}></Layer>
+                    )}
                 </div>
             </div>
+            <div id="swatches" style={{display: 'none'}}>
             <div className='ColorSwatches'>
                 {this.state.colors.map((item, index) =>
                     <Color key={index} item={item}></Color>
                 )}
+            </div>
             </div>
         </div>
     }

@@ -1,15 +1,21 @@
-export default class Layer {
+import React from 'react';
 
-    constructor(name, attributes) {
-        this.name = name;
-        this.attributes = attributes;
+class Layer extends React.Component {
+    // eslint-disable-next-line
+    constructor(props) {
+        super(props);
+        this.state = {};
+      
     }
 
-    getName() {
-        return this.name;
+    componentDidMount() {
     }
 
-    getAttributes() {
-        return this.attributes;
+    render() {
+        return (
+        <div className='togglebutton'><div>{this.props.item.key}</div></div> 
+        )
     }
+
 }
+export default Layer;

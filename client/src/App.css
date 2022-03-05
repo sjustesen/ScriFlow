@@ -12,6 +12,28 @@ html { background: #ccc; }
   color: white;
 }
 
-..colorbox {
+.togglebutton {
+  display: flex;
+  align-items: center;
+  border-top: 1px solid #000;
+  border-left: 1px solid #000;
+  border-right: 1px solid #000;
+  padding: 5px;
+  cursor: default;
+}
+
+.togglebutton:hover {
+  background-color: #ccc;
+  cursor:pointer;
+}
+
+.colorbox {
   background-color: #000;
+  height: 30px;
+  width: 30px;
+  margin-right: 10px;
+}
+
+.swatches, .layers {
+  display: none;
 }
