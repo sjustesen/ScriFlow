@@ -44,6 +44,9 @@ class LoadFileModal extends React.Component {
     }
 
     LoadFile = () => {
+        // TODO: Put network actions in a service worker
+        // TODO: Make a service class for file operations
+
         const docService = new DocumentService();
         let res = docService.loadFromUrl('http://localhost:8080/projects/load/1')
         res.then((file) => {
