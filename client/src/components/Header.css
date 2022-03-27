@@ -1,0 +1,30 @@
+#top_tools {
+    display: flex;
+}
+
+.menuitem {
+    border-bottom: 1px solid gray;
+    border-right: 1px solid gray;
+    border-top: 1px solid white;
+    border-left: 1px solid white;
+    background-color: gray;
+    padding: 7px;
+    height: 45px;
+    width: 45px;
+}
+
+.menuitem:hover {
+    background-color: gray;
+}
+
+.menuitem:active {
+    border-top: 1px solid white;
+    border-left: 1px solid white;
+    border-bottom: 1px solid gray;
+    border-right: 1px solid gray;
+    background-color: lightblue;
+}
+
+.openfile {
+    padding: 7px;
+}

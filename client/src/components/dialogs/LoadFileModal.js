@@ -37,6 +37,10 @@ class LoadFileModal extends React.Component {
         this.eventService.subscribe('ColorPanelChanged', (event) => {
             console.dir('LayersPanelChanged')
         })
+
+        this.eventService.subscribe('CanvasUpdated', (event) => {
+            console.dir('CanvasUpdateEvent init')
+        })
     }
 
     LoadFile = () => {
@@ -56,6 +60,7 @@ class LoadFileModal extends React.Component {
                 this.eventService.publish('LayersPanelChanged', layers)
                 this.eventService.publish('ColorPanelChanged', colors)
                 this.eventService.publish('XMLDocumentLoaded', page_objects)
+                this.eventService.publish('CanvasUpdated', page_objects)
 
             }
         });

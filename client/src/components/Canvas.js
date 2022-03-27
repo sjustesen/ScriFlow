@@ -20,6 +20,9 @@ class Canvasa extends React.Component {
       window.addEventListener('LayersPanelChanged', ()=> {
          console.log('Update Layer Panel signaled..')
       })
+      window.addEventListener('CanvasUpdated', (page_objects) => {
+         console.dir(page_objects)
+      });
 
    }
 
