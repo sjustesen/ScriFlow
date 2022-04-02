@@ -31,11 +31,11 @@ export default class SLADocument {
         }
         
         let elementId = 0;
-        let attributes = {};
-
+        
         for (var element of xmlelements) {
             let elementName = 'element_' + elementId;
-        
+            let attributes = {};
+
             for (let i = 0; i < element.attributes.length; i++) {
                 let attr = element.attributes.item(i);
                 let nodename = attr.nodeName.toLowerCase();

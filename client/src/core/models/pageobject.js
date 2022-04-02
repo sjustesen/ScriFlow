@@ -2,8 +2,9 @@ export default class PageObject {
      
     constructor(type, ...options) {
         this._ptype = type; // object type as an int
-        this._width = width;
-        this._height = height;
+        this._rotation = options['rot'];
+        this._width = options['width'];
+        this._height = options['height'];
 
         // object type
         // https://wiki.scribus.net/canvas/File_Format_Specification_for_Scribus_1.4#Scribus_Template_Files_.28XML.29
@@ -27,7 +28,7 @@ export default class PageObject {
     }
 
     getY() {
-        
+
     }
 
     getType() {
@@ -36,7 +37,7 @@ export default class PageObject {
     }
 
     getRotation() {
-
+        
     }
 
     getColor() {

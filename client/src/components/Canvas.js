@@ -3,14 +3,10 @@ import './Canvas.css';
 
 import { fabric } from '../lib/fabric.min.js';
 
-import { SFCanvasLib } from '../core/drawing/canvas'
 import Guides from "@scena/guides";
+import SFCanvasLib from '../core/drawing/canvaslib'
 
 class SFCanvas extends React.Component {
-
-   /* constructor(props) {
-       super(props)
-    } */
 
    componentDidMount() {
       this.initCanvas();
@@ -20,13 +16,19 @@ class SFCanvas extends React.Component {
 
    registerCanvasEvents() {
       window.addEventListener('XmlDocumentLoaded', this.XMLDocumentLoaded)
+      
       window.addEventListener('LayersPanelChanged', () => {
          console.log('Update Layer Panel signaled..')
       })
+
+      window.addEventListener('CanvasRedrawn', (event) => {
+
+      });
+
       window.addEventListener('CanvasUpdated', (event) => {
+         let sflib = new SFCanvasLib(this.canvas);
          for (let canvas_object of event.detail) {
-            let sflib = SFCanvasLib();
-            sflib.drawObject();
+            sflib.drawObject(canvas_object);
          }
       });
 
@@ -83,19 +85,19 @@ class SFCanvas extends React.Component {
 
       parent.setAttribute('style', 'width: ' + width + 'px');
 
-      const canvas = new fabric.Canvas('c');
-      canvas.setHeight(parent.clientHeight);
-      canvas.setWidth(parent.clientWidth);
+      this.canvas = new fabric.Canvas('c');
+      this.canvas.setHeight(parent.clientHeight);
+      this.canvas.setWidth(parent.clientWidth);
 
       window.addEventListener('resize', (e) => {
          let width = grandparent.clientWidth - 60;
          parent.setAttribute('style', 'width: ' + width + 'px');
-         canvas.setHeight(parent.clientHeight);
-         canvas.setWidth(parent.clientWidth);
+         this.canvas.setHeight(parent.clientHeight);
+         this.canvas.setWidth(parent.clientWidth);
 
       })
 
-      var rect = new fabric.Rect({
+      /* var rect = new fabric.Rect({
          left: 100,
          top: 100,
          fill: 'red',
@@ -103,7 +105,7 @@ class SFCanvas extends React.Component {
          height: 20
       });
 
-      canvas.add(rect);
+      canvas.add(rect); */
    }
 
    // event
