@@ -22,6 +22,14 @@ export default class PageObject {
         this._color = options['color'] != null ? options['color'] : null;
     }
 
+    getX() {
+
+    }
+
+    getY() {
+        
+    }
+
     getType() {
         if(this._ptypes.contains(this._ptype))
             return this._ptypes[this._ptype];
