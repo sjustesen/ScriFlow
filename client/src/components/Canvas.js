@@ -1,9 +1,12 @@
 import React from 'react';
 import './Canvas.css';
+
 import { fabric } from '../lib/fabric.min.js';
+
+import { SFCanvasLib } from '../core/drawing/canvas'
 import Guides from "@scena/guides";
 
-class Canvasa extends React.Component {
+class SFCanvas extends React.Component {
 
    /* constructor(props) {
        super(props)
@@ -21,9 +24,9 @@ class Canvasa extends React.Component {
          console.log('Update Layer Panel signaled..')
       })
       window.addEventListener('CanvasUpdated', (event) => {
-         console.dir(event.detail);
-         for (let obj of event.detail) {
-            console.dir(obj.attributes.width);
+         for (let canvas_object of event.detail) {
+            let sflib = SFCanvasLib();
+            sflib.drawObject();
          }
       });
 
@@ -115,4 +118,4 @@ class Canvasa extends React.Component {
 
 }
 
-export default Canvasa;
+export default SFCanvas;

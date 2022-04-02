@@ -17,7 +17,7 @@ class Color extends React.Component {
         }
        
         if (colorspace.toUpperCase() == 'CMYK') {
-            color = ColorUtil.convertCMYKtoRGB(attribs.get('c'), attribs.get('m'), attribs.get('y'), attribs.get('k'))
+            color = ColorUtil.convertCMYKtoRGB(attribs.c, attribs.m, attribs.y, attribs.k)
         } else { // Color is RGB or unknown
             color.r = attribs.r;
             color.g = attribs.g; 

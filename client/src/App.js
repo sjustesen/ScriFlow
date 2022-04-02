@@ -3,7 +3,7 @@ import './App.css';
 
 import Topmenu from './components/navigation/Topmenu';
 import Header from './components/Header.js';
-import Canvasa from './components/Canvas.js';
+import SFCanvas from './components/Canvas.js';
 import LoadFileModal from './components/dialogs/LoadFileModal';
 import Toolbox from './components/Toolbox.js';
 
@@ -24,7 +24,7 @@ class App extends React.Component {
         <Topmenu boxed="false" />
         <Header />
         <section className="columns">
-          <div className="column is-10"><Canvasa name="c" /></div>
+          <div className="column is-10"><SFCanvas name="c" /></div>
           <div className="column">
             <Toolbox />
           <button onClick={this.HandleOpenModal}>Demo Load file</button>
