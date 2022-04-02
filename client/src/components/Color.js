@@ -19,9 +19,9 @@ class Color extends React.Component {
         if (colorspace.toUpperCase() == 'CMYK') {
             color = ColorUtil.convertCMYKtoRGB(attribs.get('c'), attribs.get('m'), attribs.get('y'), attribs.get('k'))
         } else { // Color is RGB or unknown
-            color.r = attribs.get('r');
-            color.g = attribs.get('g'); 
-            color.b = attribs.get('b');
+            color.r = attribs.r;
+            color.g = attribs.g; 
+            color.b = attribs.b;
         }
         return [
             color.r,
@@ -32,8 +32,8 @@ class Color extends React.Component {
     }
 
     render() {
-        let attribs = this.props.item.attributes;
-        let colorspace = (attribs.get('space') == 'CMYK') ? 'CMYK' : 'RGB';
+        let attribs = this.props.item;
+        let colorspace = (attribs["space"] == 'CMYK') ? 'CMYK' : 'RGB';
         var swatch_color = this.showColor(colorspace, attribs);
         let name = this.props.item.name;
     

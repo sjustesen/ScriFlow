@@ -62,7 +62,7 @@ class LoadFileModal extends React.Component {
                 // signal subscribers to update the layers panel
                 this.eventService.publish('LayersPanelChanged', layers)
                 this.eventService.publish('ColorPanelChanged', colors)
-                this.eventService.publish('XMLDocumentLoaded', page_objects)
+                this.eventService.publish('XMLDocumentLoaded')
                 this.eventService.publish('CanvasUpdated', page_objects)
 
             }

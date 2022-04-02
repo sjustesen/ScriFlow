@@ -24,7 +24,6 @@ export default class SLADocument {
 
     getElement(propname) {
         let result = [];
-        let xmlattributes = new Map();
         let xmlelements = this.xmldata.querySelectorAll(propname);
 
         if (xmlelements.length === 0) {
@@ -32,13 +31,15 @@ export default class SLADocument {
         }
         
         let elementId = 0;
+        let attributes = {};
+
         for (var element of xmlelements) {
             let elementName = 'element_' + elementId;
         
             for (let i = 0; i < element.attributes.length; i++) {
                 let attr = element.attributes.item(i);
                 let nodename = attr.nodeName.toLowerCase();
-                xmlattributes.set(nodename, attr.nodeValue);
+                attributes[nodename] = attr.nodeValue;
 
                 if (nodename == 'name') {
                     elementName = attr.nodeValue;
@@ -49,7 +50,7 @@ export default class SLADocument {
                 id: elementName.trim().toLowerCase().replace(' ', '_'),
                 name: elementName, 
                 type: propname.toLowerCase(), 
-                attributes: xmlattributes
+                attributes: attributes
             })
 
             elementId++;

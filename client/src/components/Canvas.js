@@ -5,9 +5,9 @@ import Guides from "@scena/guides";
 
 class Canvasa extends React.Component {
 
-  /* constructor(props) {
-      super(props)
-   } */
+   /* constructor(props) {
+       super(props)
+    } */
 
    componentDidMount() {
       this.initCanvas();
@@ -17,11 +17,14 @@ class Canvasa extends React.Component {
 
    registerCanvasEvents() {
       window.addEventListener('XmlDocumentLoaded', this.XMLDocumentLoaded)
-      window.addEventListener('LayersPanelChanged', ()=> {
+      window.addEventListener('LayersPanelChanged', () => {
          console.log('Update Layer Panel signaled..')
       })
-      window.addEventListener('CanvasUpdated', (page_objects) => {
-         console.dir(page_objects)
+      window.addEventListener('CanvasUpdated', (event) => {
+         console.dir(event.detail);
+         for (let obj of event.detail) {
+            console.dir(obj.attributes.width);
+         }
       });
 
    }
