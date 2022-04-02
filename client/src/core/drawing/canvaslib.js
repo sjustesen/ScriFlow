@@ -5,27 +5,28 @@ import SF2DDrawing from './draw'
 import SFText from './text';
 
 export default class SFCanvasLib {
-    
+
     constructor(renderer) {
         this.renderer = renderer;
     }
 
-    drawObject(objtype) {
-        var pageobject = new PageObject();
-        
-        console.log('drawing object on the canvas');
-        console.dir(objtype.attributes.ptype);
+    drawObject(obj) {
+        var pageobject;
 
-        var rect = new fabric.Rect({
-            left: 100,
-            top: 100,
-            fill: 'red',
-            width: 20,
-            height: 20
-         });
-         
-         // add object to the referenced canvas
-         this.renderer.add(rect);
+        switch (obj.attributes.ptype) {
+            case "4":
+                pageobject = new fabric.Text('Hest', { left: 0, top: 0 });
+                break;
+            case 5:
+                break;
+            case 6:
+                break;
+            default:
+                break;
+        }
+        console.dir(pageobject)
+        // add object to the referenced canvas
+       this.renderer.add(pageobject);
     }
 
 

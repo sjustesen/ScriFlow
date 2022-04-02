@@ -12,23 +12,23 @@ class SFCanvas extends React.Component {
       this.initCanvas();
       this.initGuides();
       this.registerCanvasEvents();
+
+      this.sfcanvas = new SFCanvasLib(this.canvas);
+
    }
 
    registerCanvasEvents() {
       window.addEventListener('XmlDocumentLoaded', this.XMLDocumentLoaded)
-      
       window.addEventListener('LayersPanelChanged', () => {
          console.log('Update Layer Panel signaled..')
       })
 
       window.addEventListener('CanvasRedrawn', (event) => {
-
       });
 
       window.addEventListener('CanvasUpdated', (event) => {
-         let sflib = new SFCanvasLib(this.canvas);
          for (let canvas_object of event.detail) {
-            sflib.drawObject(canvas_object);
+            this.sfcanvas.drawObject(canvas_object);
          }
       });
 
@@ -60,9 +60,9 @@ class SFCanvas extends React.Component {
          console.log(e.guides);
       });
 
-
       let scrollX = 0;
       let scrollY = 0;
+
       window.addEventListener("resize", () => {
          guide1.resize();
          guide2.resize();
@@ -96,16 +96,6 @@ class SFCanvas extends React.Component {
          this.canvas.setWidth(parent.clientWidth);
 
       })
-
-      /* var rect = new fabric.Rect({
-         left: 100,
-         top: 100,
-         fill: 'red',
-         width: 20,
-         height: 20
-      });
-
-      canvas.add(rect); */
    }
 
    // event
