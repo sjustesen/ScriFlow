@@ -24,11 +24,11 @@ export default class PageObject {
     }
 
     getX() {
-
+        return this.ypos;
     }
 
     getY() {
-
+        return this._xpos;
     }
 
     getType() {
