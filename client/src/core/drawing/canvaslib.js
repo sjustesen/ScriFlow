@@ -1,4 +1,5 @@
 import { fabric } from '../../lib/fabric.min.js';
+import PageObject from '../models/pageobject.js';
 
 import SF2DDrawing from './draw'
 import SFText from './text';
@@ -10,6 +11,8 @@ export default class SFCanvasLib {
     }
 
     drawObject(objtype) {
+        var pageobject = new PageObject();
+        
         console.log('drawing object on the canvas');
         console.dir(objtype.attributes.ptype);
 

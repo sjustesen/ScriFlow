@@ -37,7 +37,7 @@ export default class PageObject {
     }
 
     getRotation() {
-        
+        return this._rotation;
     }
 
     getColor() {
