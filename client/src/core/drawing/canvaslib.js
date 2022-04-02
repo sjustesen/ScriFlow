@@ -99,7 +99,6 @@ export default class SFCanvasLib {
             default:
                 break;
         }
-        console.dir(pageobject)
         // add object to the referenced canvas
        this.canvas.add(pageobject);
     }

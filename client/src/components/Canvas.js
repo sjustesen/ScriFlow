@@ -14,7 +14,6 @@ class SFCanvas extends React.Component {
 
    render() {
       return <div className="canvascontainer">
-
          <div className="ruler" style={{ width: 60 + 'px' }}></div>
          <div className="innerframe">
             <div className="rulerHorizontal" style={{ height: 50 + 'px', minWidth: 100 + '%' }}></div>
