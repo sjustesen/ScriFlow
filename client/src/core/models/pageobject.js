@@ -19,7 +19,7 @@ export default class PageObject {
         }
 
         this._options = options;
-        this._color = options['color'] == null ? options['color'] : null;
+        this._color = options['color'] != null ? options['color'] : null;
     }
 
     getType() {
