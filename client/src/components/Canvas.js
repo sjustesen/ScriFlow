@@ -3,12 +3,12 @@ import './Canvas.css';
 
 import { fabric } from '../lib/fabric.min.js';
 
-import SFCanvasLib from '../core/drawing/canvaslib'
+import SFCanvasController from '../core/canvas/canvascontroller'
 
 class SFCanvas extends React.Component {
 
    componentDidMount() {
-      this.sfcanvas = new SFCanvasLib();
+      this.sfcanvas = new SFCanvasController();
 
    }
 
