@@ -3,7 +3,7 @@
 
 export default class SF2DDrawing {
 
-    constructor() {
+    constructor(context) {
 
     }
 
@@ -12,7 +12,8 @@ export default class SF2DDrawing {
     }
 
     drawPath() {
-        let path = ''
+        // Sample: M0 0 L77.2498 0 L77.2498 68.9469 L0 68.9469 L0 0 Z
+        //path = new fabric.Path('M 0 0 L 200 100 L 170 200 z');
 
     }
 

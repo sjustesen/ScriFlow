@@ -91,16 +91,21 @@ export default class SFCanvasLib {
         switch (obj.attributes.ptype) {
             case "4":
                 pageobject = new fabric.Text('Hest', { left: 0, top: 0 });
+                this.canvas.add(pageobject);
                 break;
             case 5:
                 break;
-            case 6:
+            case "6":
+               console.dir(obj)
+               let path = new fabric.Path(obj.attributes.path);
+               path.set({ fill: 'red', stroke: 'green', opacity: 0.5 });
+               this.canvas.add(path);
                 break;
             default:
                 break;
         }
         // add object to the referenced canvas
-       this.canvas.add(pageobject);
+       //this.canvas.add(pageobject);
     }
 
 
