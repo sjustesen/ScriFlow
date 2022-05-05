@@ -5,12 +5,14 @@ export default class PageObject {
         this._rotation = options['rot'];
         this._width = options['width'];
         this._height = options['height'];
+        this._color = options['pcolor'];
+        this._stroke = options['pcolor2'];
 
         // object type
         // https://wiki.scribus.net/canvas/File_Format_Specification_for_Scribus_1.4#Scribus_Template_Files_.28XML.29
         // Seems to be the same for Scribus 1.5
 
-        this._ptypes = {
+        this._objtypes = {
             2: 'image',
             4: 'text',
             5: 'line',
@@ -20,7 +22,6 @@ export default class PageObject {
         }
 
         this._options = options;
-        this._color = options['color'] != null ? options['color'] : null;
     }
 
     getX() {
@@ -32,8 +33,8 @@ export default class PageObject {
     }
 
     getType() {
-        if(this._ptypes.contains(this._ptype))
-            return this._ptypes[this._ptype];
+        if(this._objtypes.hasOwnProperty(this._ptype))
+            return this._objtypes[this._ptype];
     }
 
     getRotation() {
@@ -42,6 +43,10 @@ export default class PageObject {
 
     getColor() {
         return this._color;
+    }
+
+    getStrokeColor() {
+        return this._stroke;
     }
 
     // To be continued
