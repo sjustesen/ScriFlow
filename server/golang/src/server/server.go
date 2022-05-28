@@ -8,7 +8,6 @@ import (
 	"os"
 
 	"github.com/gin-gonic/gin"
-	rest "github.com/sjustesen/scriflow/server/rest"
 	// "github.com/gin-contrib/sessions"
 )
 
@@ -40,7 +39,7 @@ func Bootup() {
 
 	r.LoadHTMLGlob("./templates/*")
 
-	rest.MountRoutes(r)
+	MountRoutes(r)
 
 	r.Run() // listen and serve o
 }

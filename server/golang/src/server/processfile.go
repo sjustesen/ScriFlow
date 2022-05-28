@@ -1,4 +1,4 @@
-package packagefile
+package server
 
 //"github.com/probonopd/go-scribus"
 

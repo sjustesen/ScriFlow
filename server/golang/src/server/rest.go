@@ -1,6 +1,7 @@
-package rest
+package server
 
 import (
+	"encoding/json"
 	"fmt"
 	"net/http"
 	"os"
@@ -36,8 +37,21 @@ func MountRoutes(r *gin.Engine) {
 		})
 
 		restricted.GET("list", func(c *gin.Context) {
-			//systempath, err := os.Getwd()
-			c.JSON(http.StatusOK, "list projects")
+			systempath, err := os.Getwd()
+			var arr []string
+			dir, err := os.ReadDir(systempath + "Projects/")
+			for _, file := range dir {
+				arr = append(arr, file.Name())
+				fmt.Println(arr)
+			}
+			if err == nil {
+				json_dir, json_err := json.Marshal(arr)
+				if json_err == nil {
+					c.JSON(http.StatusOK, string(json_dir))
+				} else {
+					c.JSON(http.StatusBadRequest, json_err)
+				}
+			}
 		})
 
 		restricted.GET("load/:id", func(c *gin.Context) {
