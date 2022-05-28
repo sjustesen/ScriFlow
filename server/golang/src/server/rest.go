@@ -6,8 +6,6 @@ import (
 
 
 func MountRoutes(r *gin) {
-// -- Setup Routes --
-	// TODO: getting quite lenghty - perhaps split up at some point?
 
 	r.GET("/", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "index.tmpl", map[string]interface{}{})
