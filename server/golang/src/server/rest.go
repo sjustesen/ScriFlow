@@ -8,7 +8,9 @@ import (
 
 	"github.com/gin-gonic/gin"
 	scribus "github.com/probonopd/go-scribus"
+
 	"github.com/sjustesen/scriflow/core/config"
+	"github.com/sjustesen/scriflow/core/project"
 )
 
 func MountRoutes(r *gin.Engine) {
@@ -37,21 +39,12 @@ func MountRoutes(r *gin.Engine) {
 		})
 
 		restricted.GET("list", func(c *gin.Context) {
-			systempath, err := os.Getwd()
-			var arr []string
-			dir, err := os.ReadDir(systempath + "Projects/")
-			for _, file := range dir {
-				arr = append(arr, file.Name())
-				fmt.Println(arr)
+			files := project.ListScribusProjects()
+			if files == nil {
+				json, _ := json.Marshal(files)
+				c.JSON(http.StatusOK, json)
 			}
-			if err == nil {
-				json_dir, json_err := json.Marshal(arr)
-				if json_err == nil {
-					c.JSON(http.StatusOK, string(json_dir))
-				} else {
-					c.JSON(http.StatusBadRequest, json_err)
-				}
-			}
+
 		})
 
 		restricted.GET("load/:id", func(c *gin.Context) {
