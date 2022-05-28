@@ -11,7 +11,7 @@ require (
 	github.com/json-iterator/go v1.1.12 // indirect
 	github.com/mattn/go-isatty v0.0.14 // indirect
 	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect
-	github.com/probonopd/go-scribus v0.0.0-20191118233556-c4ba472eb24e // indirect
+	github.com/probonopd/go-scribus v0.0.0-20191118233556-c4ba472eb24e
 	github.com/ugorji/go v1.2.6 // indirect
 	golang.org/x/crypto v0.0.0-20210921155107-089bfa567519 // indirect
 	golang.org/x/sys v0.0.0-20211020064051-0ec99a608a1b // indirect
