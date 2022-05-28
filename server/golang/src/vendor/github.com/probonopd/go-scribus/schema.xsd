@@ -1,0 +1,1154 @@
+<schema
+  xmlns='http://www.w3.org/2000/10/XMLSchema'
+  targetNamespace='http://www.w3.org/namespace/'
+  xmlns:t='http://www.w3.org/namespace/'>
+
+ <element name='txt-style'>
+  <complexType>
+   <attribute name='id' type='ID' use='optional'/>
+   <attribute name='name' type='string' use='optional'/>
+   <attribute name='shortcut' type='string' use='optional'/>
+   <attribute name='parent' type='IDREF' use='optional'/>
+   <attribute name='font-face' type='string' use='default' value='#IMLIED'/>
+   <attribute name='font-family-hint' type='string' use='optional'/>
+   <attribute name='font-weight-hint' type='string' use='optional'/>
+   <attribute name='font-slant-hint' type='string' use='optional'/>
+   <attribute name='font-size' type='string' use='optional'/>
+   <attribute name='word-tracking' type='string' use='optional'/>
+   <attribute name='font-size-units' use='default' value='pt'>
+    <simpleType>
+     <restriction base='string'>
+      <enumeration value='pt'/>
+      <enumeration value='pc'/>
+     </restriction>
+    </simpleType>
+   </attribute>
+   <attribute name='font-width' type='string' use='optional'/>
+   <attribute name='char-tracking' type='string' use='optional'/>
+   <attribute name='font-leading-type' use='optional'>
+    <simpleType>
+     <restriction base='string'>
+      <enumeration value='relative'/>
+      <enumeration value='auto'/>
+      <enumeration value='fixed'/>
+      <enumeration value='grid'/>
+     </restriction>
+    </simpleType>
+   </attribute>
+   <attribute name='font-leading-type-amount' type='string' use='optional'/>
+   <attribute name='font-leading-mode' use='optional'>
+    <simpleType>
+     <restriction base='string'>
+      <enumeration value='proportional'/>
+      <enumeration value='baseline'/>
+      <enumeration value='top-of-caps'/>
+      <enumeration value='custom'/>
+     </restriction>
+    </simpleType>
+   </attribute>
+   <attribute name='font-leading-mode-amount' type='string' use='optional'/>
+   <attribute name='font-baseline-offset' type='string' use='optional'/>
+   <attribute name='font-features' type='#NMTOKENS' use='optional'/>
+   <attribute name='text-stroke-color' type='string' use='optional'/>
+   <attribute name='text-stroke-shadow' type='string' use='optional'/>
+   <attribute name='text-stroke-opacity' type='string' use='optional'/>
+   <attribute name='text-fill-color' type='string' use='optional'/>
+   <attribute name='text-fill-shadow' type='string' use='optional'/>
+   <attribute name='text-fill-opacity' type='string' use='optional'/>
+   <attribute name='justification' use='optional'>
+    <simpleType>
+     <restriction base='string'>
+      <enumeration value='left'/>
+      <enumeration value='right'/>
+      <enumeration value='center'/>
+      <enumeration value='justify'/>
+      <enumeration value='force-justify'/>
+     </restriction>
+    </simpleType>
+   </attribute>
+   <attribute name='language' type='string' use='optional'/>
+   <attribute name='text-direction' type='string' use='optional'/>
+   <attribute name='solid-block' use='optional'>
+    <simpleType>
+     <restriction base='string'>
+      <enumeration value='yes'/>
+      <enumeration value='no'/>
+     </restriction>
+    </simpleType>
+   </attribute>
+  </complexType>
+ </element>
+
+ <element name='par-style'>
+  <complexType>
+   <element ref='t:txt-style'/>
+   <element ref='t:tab' minOccurs='0' maxOccurs='unbounded'/>
+   <attribute name='%' type='string' use='default' value='par-indent-first'/>
+   <attribute name='CDATA' type='string' use='default' value='par-indent-left'/>
+   <attribute name='CDATA' type='string' use='default' value='par-indent-right'/>
+   <attribute name='CDATA' type='string' use='default' value='par-indent-unit'/>
+   <attribute name='(' type='string' use='default' value='|'/>
+   <attribute name='px' type='string' use='default' value='pica'/>
+   <attribute name='|' type='string' use='default' value='|'/>
+   <attribute name='mm' type='string' use='default' value='cm'/>
+   <attribute name='|' type='string' use='default' value=')'/>
+   <attribute name='pt' type='string' use='default' value='('/>
+   <attribute name='yes' type='string' use='default' value='no'/>
+   <attribute name=')' type='string' use='default' value='par-spacing-before'/>
+   <attribute name='CDATA' type='string' use='default' value='par-spacing-after'/>
+   <attribute name='CDATA' type='string' use='default' value='par-spacing-unit'/>
+   <attribute name='(' type='string' use='default' value='|'/>
+   <attribute name='px' type='string' use='default' value='pica'/>
+   <attribute name='|' type='string' use='default' value='|'/>
+   <attribute name='mm' type='string' use='default' value='cm'/>
+   <attribute name='|' type='string' use='default' value=')'/>
+   <attribute name='pt' type='string' use='default' value='('/>
+   <attribute name='normal' type='string' use='default' value='bullet'/>
+   <attribute name='|' type='string' use='default' value='|'/>
+   <attribute name='incr-number' type='string' use='optional'/>
+   <attribute name='bullet-char' type='ENTITY' use='optional'/>
+   <attribute name='word-tracking' type='string' use='optional'/>
+  </complexType>
+ </element>
+
+ <element name='table-style'>
+  <complexType>
+   <attribute name='id' type='ID' use='required'/>
+   <attribute name='border-width' type='string' use='default' value='1'/>
+   <attribute name='border-style' type='string' use='default' value='solid'/>
+   <attribute name='border-color' type='string' use='default' value='black'/>
+   <attribute name='background-color' type='string' use='default' value='none'/>
+  </complexType>
+ </element>
+
+ <element name='table-cellstyle'>
+  <complexType>
+   <attribute name='id' type='ID' use='required'/>
+   <attribute name='border-width' type='string' use='default' value='1'/>
+   <attribute name='border-style' type='string' use='default' value='solid'/>
+   <attribute name='border-color' type='string' use='default' value='black'/>
+   <attribute name='background-color' type='string' use='default' value='none'/>
+  </complexType>
+ </element>
+
+ <element name='scribus'>
+  <complexType>
+   <sequence>
+    <element ref='t:metadata'/>
+    <element ref='t:settings'/>
+    <element ref='t:colors'/>
+    <element ref='t:styles'/>
+    <element ref='t:canvas' maxOccurs='unbounded'/>
+    <element ref='t:content' minOccurs='0' maxOccurs='unbounded'/>
+   </sequence>
+  </complexType>
+ </element>
+
+ <element name='metadata'>
+  <complexType>
+   <sequence>
+   <any namespace='http://www.w3.org/namespace/'/>
+   </sequence>
+  </complexType>
+ </element>
+
+ <element name='settings'>
+  <complexType>
+   <attribute name='default-page-size' type='string' use='default' value='A4'/>
+   <attribute name='default-page-orientation' type='string' use='default' value='Portrait'/>
+   <attribute name='default-page-width' type='string' use='optional'/>
+   <attribute name='default-page-height' type='string' use='optional'/>
+   <attribute name='default-unit' use='default' value='pt'>
+    <simpleType>
+     <restriction base='string'>
+      <enumeration value='pt'/>
+      <enumeration value='px'/>
+      <enumeration value='pica'/>
+      <enumeration value='in'/>
+      <enumeration value='mm'/>
+      <enumeration value='cm'/>
+      <enumeration value='c'/>
+     </restriction>
+    </simpleType>
+   </attribute>
+   <attribute name='facing-pages' use='default' value='no'>
+    <simpleType>
+     <restriction base='string'>
+      <enumeration value='yes'/>
+      <enumeration value='no'/>
+     </restriction>
+    </simpleType>
+   </attribute>
+   <attribute name='left-page-first' use='default' value='no'>
+    <simpleType>
+     <restriction base='string'>
+      <enumeration value='yes'/>
+      <enumeration value='no'/>
+     </restriction>
+    </simpleType>
+   </attribute>
+   <attribute name='first-page-number' type='string' use='default' value='1'/>
+   <attribute name='automatic-text-frames' use='default' value='no'>
+    <simpleType>
+     <restriction base='string'>
+      <enumeration value='yes'/>
+      <enumeration value='no'/>
+     </restriction>
+    </simpleType>
+   </attribute>
+   <attribute name='margin-guide-left' type='string' use='default' value='40'/>
+   <attribute name='margin-guide-right' type='string' use='default' value='40'/>
+   <attribute name='margin-guide-top' type='string' use='default' value='40'/>
+   <attribute name='margin-guide-bottom' type='string' use='default' value='40'/>
+   <attribute name='columns' type='string' use='default' value='1'/>
+   <attribute name='column-gap' type='string' use='default' value='11'/>
+  </complexType>
+ </element>
+
+ <element name='colors'>
+  <complexType>
+   <sequence minOccurs='0' maxOccurs='unbounded'>
+    <element ref='t:color'/>
+   </sequence>
+  </complexType>
+ </element>
+
+ <element name='color'>
+  <complexType>
+   <attribute name='color-register' type='string' use='default' value='0'/>
+   <attribute name='color-spot' type='string' use='default' value='0'/>
+   <attribute name='color-rgb' type='string' use='optional'/>
+   <attribute name='color-cmyk' type='string' use='optional'/>
+   <attribute name='color-name' type='string' use='optional'/>
+  </complexType>
+ </element>
+
+ <element name='styles'>
+  <complexType>
+   <sequence>
+    <element ref='t:par-style' minOccurs='0' maxOccurs='unbounded'/>
+    <element ref='t:txt-style' minOccurs='0' maxOccurs='unbounded'/>
+    <element ref='t:table-style' minOccurs='0' maxOccurs='unbounded'/>
+    <element ref='t:table-cellstyle' minOccurs='0' maxOccurs='unbounded'/>
+   </sequence>
+  </complexType>
+ </element>
+
+ <element name='canvas'>
+  <complexType>
+   <sequence>
+    <element ref='t:canvasobjects' minOccurs='0' maxOccurs='unbounded'/>
+    <element ref='t:scratchspace' minOccurs='0' maxOccurs='unbounded'/>
+    <element ref='t:page' minOccurs='0' maxOccurs='unbounded'/>
+    <element ref='t:cropmark' minOccurs='0' maxOccurs='unbounded'/>
+    <element ref='t:guide' minOccurs='0' maxOccurs='unbounded'/>
+    <element ref='t:imgframe' minOccurs='0' maxOccurs='unbounded'/>
+    <element ref='t:textframe' minOccurs='0' maxOccurs='unbounded'/>
+    <element ref='t:table' minOccurs='0' maxOccurs='unbounded'/>
+    <element ref='t:svgobject' minOccurs='0' maxOccurs='unbounded'/>
+    <element ref='t:epsobject' minOccurs='0' maxOccurs='unbounded'/>
+   </sequence>
+   <attribute name='id' type='ID' use='required'/>
+   <attribute name='width' type='string' use='default' value='8.5'/>
+   <attribute name='height' type='string' use='default' value='11.0'/>
+   <attribute name='sizeunit' use='default' value='pt'>
+    <simpleType>
+     <restriction base='string'>
+      <enumeration value='pt'/>
+      <enumeration value='px'/>
+      <enumeration value='pica'/>
+      <enumeration value='in'/>
+      <enumeration value='mm'/>
+      <enumeration value='cm'/>
+      <enumeration value='c'/>
+     </restriction>
+    </simpleType>
+   </attribute>
+  </complexType>
+ </element>
+
+ <element name='content'>
+  <complexType>
+   <sequence>
+    <element ref='t:textcontent' minOccurs='0' maxOccurs='unbounded'/>
+    <element ref='t:svgcontent' minOccurs='0' maxOccurs='unbounded'/>
+    <element ref='t:epscontent' minOccurs='0' maxOccurs='unbounded'/>
+   </sequence>
+  </complexType>
+ </element>
+
+ <element name='scratchspace'>
+  <complexType>
+   <sequence>
+    <element ref='t:imgframeobj' minOccurs='0' maxOccurs='unbounded'/>
+    <element ref='t:textframeobj' minOccurs='0' maxOccurs='unbounded'/>
+    <element ref='t:tableobj' minOccurs='0' maxOccurs='unbounded'/>
+    <element ref='t:svgobject' minOccurs='0' maxOccurs='unbounded'/>
+    <element ref='t:epsobject' minOccurs='0' maxOccurs='unbounded'/>
+   </sequence>
+   <attribute name='id' type='ID' use='required'/>
+   <attribute name='canvasid' type='IDREF' use='required'/>
+   <attribute name='visible' use='default' value='yes'>
+    <simpleType>
+     <restriction base='string'>
+      <enumeration value='yes'/>
+      <enumeration value='no'/>
+     </restriction>
+    </simpleType>
+   </attribute>
+   <attribute name='printable' use='default' value='no'>
+    <simpleType>
+     <restriction base='string'>
+      <enumeration value='yes'/>
+      <enumeration value='no'/>
+     </restriction>
+    </simpleType>
+   </attribute>
+  </complexType>
+ </element>
+
+ <element name='canvasobjects'>
+  <complexType>
+   <sequence>
+    <element ref='t:imgframe' minOccurs='0' maxOccurs='unbounded'/>
+    <element ref='t:textframe' minOccurs='0' maxOccurs='unbounded'/>
+    <element ref='t:table' minOccurs='0' maxOccurs='unbounded'/>
+    <element ref='t:svgobject' minOccurs='0' maxOccurs='unbounded'/>
+    <element ref='t:epsobject' minOccurs='0' maxOccurs='unbounded'/>
+   </sequence>
+  </complexType>
+ </element>
+
+ <element name='page'>
+  <complexType>
+   <sequence>
+    <element ref='t:guide' minOccurs='0' maxOccurs='unbounded'/>
+    <element ref='t:cropmark' minOccurs='0' maxOccurs='unbounded'/>
+    <element ref='t:layer' maxOccurs='unbounded'/>
+   </sequence>
+   <attribute name='id' type='ID' use='required'/>
+   <attribute name='number' type='string' use='optional'/>
+   <attribute name='width' type='string' use='default' value='8.5'/>
+   <attribute name='height' type='string' use='default' value='11.0'/>
+   <attribute name='sizeunit' use='default' value='pt'>
+    <simpleType>
+     <restriction base='string'>
+      <enumeration value='pt'/>
+      <enumeration value='px'/>
+      <enumeration value='pica'/>
+      <enumeration value='in'/>
+      <enumeration value='mm'/>
+      <enumeration value='cm'/>
+      <enumeration value='c'/>
+     </restriction>
+    </simpleType>
+   </attribute>
+   <attribute name='canvasorigin' use='default' value='ltop'>
+    <simpleType>
+     <restriction base='string'>
+      <enumeration value='ltop'/>
+      <enumeration value='rtop'/>
+      <enumeration value='lbottom'/>
+      <enumeration value='rbottom'/>
+      <enumeration value='center'/>
+     </restriction>
+    </simpleType>
+   </attribute>
+   <attribute name='xorigin' type='string' use='default' value='40'/>
+   <attribute name='yorigin' type='string' use='default' value='40'/>
+   <attribute name='originunit' use='default' value='pt'>
+    <simpleType>
+     <restriction base='string'>
+      <enumeration value='pt'/>
+      <enumeration value='px'/>
+      <enumeration value='pica'/>
+      <enumeration value='in'/>
+      <enumeration value='mm'/>
+      <enumeration value='cm'/>
+      <enumeration value='c'/>
+     </restriction>
+    </simpleType>
+   </attribute>
+   <attribute name='orientation' use='default' value='portrait'>
+    <simpleType>
+     <restriction base='string'>
+      <enumeration value='portrait'/>
+      <enumeration value='landscape'/>
+     </restriction>
+    </simpleType>
+   </attribute>
+  </complexType>
+ </element>
+
+ <element name='layer'>
+  <complexType>
+   <sequence>
+    <element ref='t:imgframeobj' minOccurs='0' maxOccurs='unbounded'/>
+    <element ref='t:textframeobj' minOccurs='0' maxOccurs='unbounded'/>
+    <element ref='t:tableobj' minOccurs='0' maxOccurs='unbounded'/>
+    <element ref='t:svgobject' minOccurs='0' maxOccurs='unbounded'/>
+    <element ref='t:epsobject' minOccurs='0' maxOccurs='unbounded'/>
+   </sequence>
+   <attribute name='id' type='ID' use='required'/>
+   <attribute name='name' type='string' use='required'/>
+   <attribute name='level' type='string' use='required'/>
+   <attribute name='visible' use='default' value='yes'>
+    <simpleType>
+     <restriction base='string'>
+      <enumeration value='yes'/>
+      <enumeration value='no'/>
+     </restriction>
+    </simpleType>
+   </attribute>
+   <attribute name='printable' use='default' value='yes'>
+    <simpleType>
+     <restriction base='string'>
+      <enumeration value='yes'/>
+      <enumeration value='no'/>
+     </restriction>
+    </simpleType>
+   </attribute>
+  </complexType>
+ </element>
+
+ <element name='imgframe'>
+  <complexType>
+   <sequence>
+    <element ref='t:img' minOccurs='0' maxOccurs='unbounded'/>
+   </sequence>
+   <attribute name='id' type='ID' use='required'/>
+   <attribute name='text-frame-id' type='IDREF' use='optional'/>
+   <attribute name='width' type='string' use='default' value='200'/>
+   <attribute name='height' type='string' use='default' value='200'/>
+   <attribute name='canvasorigin' use='default' value='ltop'>
+    <simpleType>
+     <restriction base='string'>
+      <enumeration value='ltop'/>
+      <enumeration value='rtop'/>
+      <enumeration value='lbottom'/>
+      <enumeration value='rbottom'/>
+      <enumeration value='center'/>
+     </restriction>
+    </simpleType>
+   </attribute>
+   <attribute name='sizeunit' use='default' value='pt'>
+    <simpleType>
+     <restriction base='string'>
+      <enumeration value='pt'/>
+      <enumeration value='px'/>
+      <enumeration value='pica'/>
+      <enumeration value='in'/>
+      <enumeration value='mm'/>
+      <enumeration value='cm'/>
+      <enumeration value='c'/>
+     </restriction>
+    </simpleType>
+   </attribute>
+   <attribute name='xorigin' type='string' use='default' value='40'/>
+   <attribute name='yorigin' type='string' use='default' value='40'/>
+   <attribute name='originunit' use='default' value='pt'>
+    <simpleType>
+     <restriction base='string'>
+      <enumeration value='pt'/>
+      <enumeration value='px'/>
+      <enumeration value='pica'/>
+      <enumeration value='in'/>
+      <enumeration value='mm'/>
+      <enumeration value='cm'/>
+      <enumeration value='c'/>
+     </restriction>
+    </simpleType>
+   </attribute>
+   <attribute name='rotation' type='string' use='default' value='0'/>
+   <attribute name='basepoint' use='default' value='ltop'>
+    <simpleType>
+     <restriction base='string'>
+      <enumeration value='ltop'/>
+      <enumeration value='rtop'/>
+      <enumeration value='lbottom'/>
+      <enumeration value='rbottom'/>
+      <enumeration value='center'/>
+     </restriction>
+    </simpleType>
+   </attribute>
+   <attribute name='printable' use='default' value='yes'>
+    <simpleType>
+     <restriction base='string'>
+      <enumeration value='yes'/>
+      <enumeration value='no'/>
+     </restriction>
+    </simpleType>
+   </attribute>
+   <attribute name='locked' use='default' value='no'>
+    <simpleType>
+     <restriction base='string'>
+      <enumeration value='yes'/>
+      <enumeration value='no'/>
+     </restriction>
+    </simpleType>
+   </attribute>
+   <attribute name='size-locked' use='default' value='no'>
+    <simpleType>
+     <restriction base='string'>
+      <enumeration value='yes'/>
+      <enumeration value='no'/>
+     </restriction>
+    </simpleType>
+   </attribute>
+   <attribute name='round-corners' type='string' use='default' value='0'/>
+   <attribute name='level' type='string' use='default' value='0'/>
+   <attribute name='text-flows-around' use='default' value='no'>
+    <simpleType>
+     <restriction base='string'>
+      <enumeration value='yes'/>
+      <enumeration value='no'/>
+     </restriction>
+    </simpleType>
+   </attribute>
+   <attribute name='use-bounding-box' use='default' value='no'>
+    <simpleType>
+     <restriction base='string'>
+      <enumeration value='yes'/>
+      <enumeration value='no'/>
+     </restriction>
+    </simpleType>
+   </attribute>
+   <attribute name='use-contour-line' use='default' value='no'>
+    <simpleType>
+     <restriction base='string'>
+      <enumeration value='yes'/>
+      <enumeration value='no'/>
+     </restriction>
+    </simpleType>
+   </attribute>
+   <attribute name='line-color' type='string' use='default' value='none'/>
+   <attribute name='fill-color' type='string' use='default' value='none'/>
+   <attribute name='image-scale-frame-size' use='default' value='yes'>
+    <simpleType>
+     <restriction base='string'>
+      <enumeration value='yes'/>
+      <enumeration value='no'/>
+     </restriction>
+    </simpleType>
+   </attribute>
+   <attribute name='image-scale-proportional' use='default' value='yes'>
+    <simpleType>
+     <restriction base='string'>
+      <enumeration value='yes'/>
+      <enumeration value='no'/>
+     </restriction>
+    </simpleType>
+   </attribute>
+   <attribute name='image-x-position' type='string' use='default' value='0'/>
+   <attribute name='image-y-position' type='string' use='default' value='0'/>
+   <attribute name='image-x-scale' type='string' use='default' value='1'/>
+   <attribute name='image-y-scale' type='string' use='default' value='1'/>
+   <attribute name='image-x-dpi' type='string' use='default' value='72'/>
+   <attribute name='image-y-dpi' type='string' use='default' value='72'/>
+  </complexType>
+ </element>
+
+ <element name='imgframeobj'>
+  <complexType>
+   <attribute name='idref' type='IDREF' use='required'/>
+  </complexType>
+ </element>
+
+ <element name='img'>
+  <complexType>
+   <sequence>
+   <any namespace='http://www.w3.org/namespace/'/>
+   </sequence>
+   <attribute name='id' type='ID' use='required'/>
+   <attribute name='src' type='ENTITY' use='required'/>
+   <attribute name='type' type='NOTATION' use='default' value='('/>
+   <attribute name='png' type='string' use='default' value='jpg'/>
+   <attribute name='|' type='string' use='default' value='|'/>
+   <attribute name='tiff' type='string' use='default' value='tiff'/>
+   <attribute name='width' type='string' use='required'/>
+   <attribute name='height' type='string' use='required'/>
+   <attribute name='sizeunit' use='default' value='pt'>
+    <simpleType>
+     <restriction base='string'>
+      <enumeration value='pt'/>
+      <enumeration value='px'/>
+      <enumeration value='pica'/>
+      <enumeration value='in'/>
+      <enumeration value='mm'/>
+      <enumeration value='cm'/>
+      <enumeration value='c'/>
+     </restriction>
+    </simpleType>
+   </attribute>
+   <attribute name='vresolution' type='string' use='required'/>
+   <attribute name='hresolution' type='string' use='required'/>
+   <attribute name='colorspace' use='default' value='rgb'>
+    <simpleType>
+     <restriction base='string'>
+      <enumeration value='rgb'/>
+      <enumeration value='cmyk'/>
+      <enumeration value='lab'/>
+      <enumeration value='greyscale'/>
+     </restriction>
+    </simpleType>
+   </attribute>
+   <attribute name='color-depth' use='default' value='8'>
+    <simpleType>
+     <restriction base='string'>
+      <enumeration value='1'/>
+      <enumeration value='8'/>
+      <enumeration value='16'/>
+      <enumeration value='24'/>
+      <enumeration value='32'/>
+      <enumeration value='48'/>
+     </restriction>
+    </simpleType>
+   </attribute>
+   <attribute name='icc-profile' type='string' use='optional'/>
+   <attribute name='rendering-intent-printer' use='optional'>
+    <simpleType>
+     <restriction base='string'>
+      <enumeration value='Perceptual'/>
+      <enumeration value='Relative-Colorimetric'/>
+      <enumeration value='Saturation'/>
+      <enumeration value='Absolute-Colorimetric'/>
+     </restriction>
+    </simpleType>
+   </attribute>
+  </complexType>
+ </element>
+
+ <element name='textframe'>
+  <complexType>
+   <choice minOccurs='0' maxOccurs='unbounded'>
+    <sequence minOccurs='0' maxOccurs='unbounded'>
+     <element ref='t:textcontentobj'/>
+    </sequence>
+    <sequence minOccurs='0' maxOccurs='unbounded'>
+     <element ref='t:imgframeobj' minOccurs='0' maxOccurs='unbounded'/>
+     <element ref='t:textframeobj' minOccurs='0' maxOccurs='unbounded'/>
+     <element ref='t:tableobj' minOccurs='0' maxOccurs='unbounded'/>
+     <element ref='t:svgobject' minOccurs='0' maxOccurs='unbounded'/>
+     <element ref='t:epsobject' minOccurs='0' maxOccurs='unbounded'/>
+    </sequence>
+   </choice>
+   <attribute name='id' type='ID' use='required'/>
+   <attribute name='nextframeid' type='IDREF' use='optional'/>
+   <attribute name='width' type='string' use='default' value='200'/>
+   <attribute name='height' type='string' use='default' value='200'/>
+   <attribute name='sizeunit' use='default' value='pt'>
+    <simpleType>
+     <restriction base='string'>
+      <enumeration value='pt'/>
+      <enumeration value='px'/>
+      <enumeration value='pica'/>
+      <enumeration value='in'/>
+      <enumeration value='mm'/>
+      <enumeration value='cm'/>
+      <enumeration value='c'/>
+     </restriction>
+    </simpleType>
+   </attribute>
+   <attribute name='canvasorigin' use='default' value='ltop'>
+    <simpleType>
+     <restriction base='string'>
+      <enumeration value='ltop'/>
+      <enumeration value='rtop'/>
+      <enumeration value='lbottom'/>
+      <enumeration value='rbottom'/>
+      <enumeration value='center'/>
+     </restriction>
+    </simpleType>
+   </attribute>
+   <attribute name='xorigin' type='string' use='default' value='40'/>
+   <attribute name='yorigin' type='string' use='default' value='40'/>
+   <attribute name='originunit' use='default' value='pt'>
+    <simpleType>
+     <restriction base='string'>
+      <enumeration value='pt'/>
+      <enumeration value='px'/>
+      <enumeration value='pica'/>
+      <enumeration value='in'/>
+      <enumeration value='mm'/>
+      <enumeration value='cm'/>
+      <enumeration value='c'/>
+     </restriction>
+    </simpleType>
+   </attribute>
+   <attribute name='rotation' type='string' use='default' value='0'/>
+   <attribute name='basepoint' use='default' value='ltop'>
+    <simpleType>
+     <restriction base='string'>
+      <enumeration value='ltop'/>
+      <enumeration value='rtop'/>
+      <enumeration value='lbottom'/>
+      <enumeration value='rbottom'/>
+      <enumeration value='center'/>
+     </restriction>
+    </simpleType>
+   </attribute>
+   <attribute name='printable' use='default' value='yes'>
+    <simpleType>
+     <restriction base='string'>
+      <enumeration value='yes'/>
+      <enumeration value='no'/>
+     </restriction>
+    </simpleType>
+   </attribute>
+   <attribute name='locked' use='default' value='no'>
+    <simpleType>
+     <restriction base='string'>
+      <enumeration value='yes'/>
+      <enumeration value='no'/>
+     </restriction>
+    </simpleType>
+   </attribute>
+   <attribute name='size-locked' use='default' value='no'>
+    <simpleType>
+     <restriction base='string'>
+      <enumeration value='yes'/>
+      <enumeration value='no'/>
+     </restriction>
+    </simpleType>
+   </attribute>
+   <attribute name='round-corners' type='string' use='default' value='0'/>
+   <attribute name='columnnumber' type='string' use='default' value='1'/>
+   <attribute name='columngap' type='string' use='default' value='0'/>
+   <attribute name='topdistance' type='string' use='default' value='0'/>
+   <attribute name='bottomdistance' type='string' use='default' value='0'/>
+   <attribute name='leftdistance' type='string' use='default' value='0'/>
+   <attribute name='righttdistance' type='string' use='default' value='0'/>
+   <attribute name='level' type='string' use='default' value='0'/>
+   <attribute name='text-flows-around' use='default' value='no'>
+    <simpleType>
+     <restriction base='string'>
+      <enumeration value='yes'/>
+      <enumeration value='no'/>
+     </restriction>
+    </simpleType>
+   </attribute>
+   <attribute name='use-bounding-box' use='default' value='no'>
+    <simpleType>
+     <restriction base='string'>
+      <enumeration value='yes'/>
+      <enumeration value='no'/>
+     </restriction>
+    </simpleType>
+   </attribute>
+   <attribute name='use-contour-line' use='default' value='no'>
+    <simpleType>
+     <restriction base='string'>
+      <enumeration value='yes'/>
+      <enumeration value='no'/>
+     </restriction>
+    </simpleType>
+   </attribute>
+   <attribute name='line-color' type='string' use='default' value='none'/>
+   <attribute name='fill-color' type='string' use='default' value='none'/>
+  </complexType>
+ </element>
+
+ <element name='svgobject'>
+  <complexType>
+   <sequence maxOccurs='unbounded'>
+    <element ref='t:svgcontentobj'/>
+   </sequence>
+   <attribute name='id' type='ID' use='required'/>
+   <attribute name='width' type='string' use='default' value='200'/>
+   <attribute name='height' type='string' use='default' value='200'/>
+   <attribute name='sizeunit' use='default' value='pt'>
+    <simpleType>
+     <restriction base='string'>
+      <enumeration value='pt'/>
+      <enumeration value='px'/>
+      <enumeration value='pica'/>
+      <enumeration value='in'/>
+      <enumeration value='mm'/>
+      <enumeration value='cm'/>
+      <enumeration value='c'/>
+     </restriction>
+    </simpleType>
+   </attribute>
+   <attribute name='canvasorigin' use='default' value='ltop'>
+    <simpleType>
+     <restriction base='string'>
+      <enumeration value='ltop'/>
+      <enumeration value='rtop'/>
+      <enumeration value='lbottom'/>
+      <enumeration value='rbottom'/>
+      <enumeration value='center'/>
+     </restriction>
+    </simpleType>
+   </attribute>
+   <attribute name='xorigin' type='string' use='default' value='40'/>
+   <attribute name='yorigin' type='string' use='default' value='40'/>
+   <attribute name='originunit' use='default' value='pt'>
+    <simpleType>
+     <restriction base='string'>
+      <enumeration value='pt'/>
+      <enumeration value='px'/>
+      <enumeration value='pica'/>
+      <enumeration value='in'/>
+      <enumeration value='mm'/>
+      <enumeration value='cm'/>
+      <enumeration value='c'/>
+     </restriction>
+    </simpleType>
+   </attribute>
+   <attribute name='rotation' type='string' use='default' value='0'/>
+   <attribute name='basepoint' use='default' value='ltop'>
+    <simpleType>
+     <restriction base='string'>
+      <enumeration value='ltop'/>
+      <enumeration value='rtop'/>
+      <enumeration value='lbottom'/>
+      <enumeration value='rbottom'/>
+      <enumeration value='center'/>
+     </restriction>
+    </simpleType>
+   </attribute>
+   <attribute name='printable' use='default' value='yes'>
+    <simpleType>
+     <restriction base='string'>
+      <enumeration value='yes'/>
+      <enumeration value='no'/>
+     </restriction>
+    </simpleType>
+   </attribute>
+   <attribute name='level' type='string' use='default' value='0'/>
+  </complexType>
+ </element>
+
+ <element name='epsobject'>
+  <complexType>
+   <sequence maxOccurs='unbounded'>
+    <element ref='t:epscontentobj'/>
+   </sequence>
+   <attribute name='id' type='ID' use='required'/>
+   <attribute name='width' type='string' use='default' value='200'/>
+   <attribute name='height' type='string' use='default' value='200'/>
+   <attribute name='sizeunit' use='default' value='pt'>
+    <simpleType>
+     <restriction base='string'>
+      <enumeration value='pt'/>
+      <enumeration value='px'/>
+      <enumeration value='pica'/>
+      <enumeration value='in'/>
+      <enumeration value='mm'/>
+      <enumeration value='cm'/>
+      <enumeration value='c'/>
+     </restriction>
+    </simpleType>
+   </attribute>
+   <attribute name='canvasorigin' use='default' value='ltop'>
+    <simpleType>
+     <restriction base='string'>
+      <enumeration value='ltop'/>
+      <enumeration value='rtop'/>
+      <enumeration value='lbottom'/>
+      <enumeration value='rbottom'/>
+      <enumeration value='center'/>
+     </restriction>
+    </simpleType>
+   </attribute>
+   <attribute name='xorigin' type='string' use='default' value='40'/>
+   <attribute name='yorigin' type='string' use='default' value='40'/>
+   <attribute name='originunit' use='default' value='pt'>
+    <simpleType>
+     <restriction base='string'>
+      <enumeration value='pt'/>
+      <enumeration value='px'/>
+      <enumeration value='pica'/>
+      <enumeration value='in'/>
+      <enumeration value='mm'/>
+      <enumeration value='cm'/>
+      <enumeration value='c'/>
+     </restriction>
+    </simpleType>
+   </attribute>
+   <attribute name='rotation' type='string' use='default' value='0'/>
+   <attribute name='basepoint' use='default' value='ltop'>
+    <simpleType>
+     <restriction base='string'>
+      <enumeration value='ltop'/>
+      <enumeration value='rtop'/>
+      <enumeration value='lbottom'/>
+      <enumeration value='rbottom'/>
+      <enumeration value='center'/>
+     </restriction>
+    </simpleType>
+   </attribute>
+   <attribute name='printable' use='default' value='yes'>
+    <simpleType>
+     <restriction base='string'>
+      <enumeration value='yes'/>
+      <enumeration value='no'/>
+     </restriction>
+    </simpleType>
+   </attribute>
+   <attribute name='level' type='string' use='default' value='0'/>
+  </complexType>
+ </element>
+
+ <element name='textframeobj'>
+  <complexType>
+   <attribute name='idref' type='IDREF' use='required'/>
+  </complexType>
+ </element>
+
+ <element name='textcontent'>
+  <complexType>
+   <element ref='t:parstyle'/>
+   <sequence maxOccurs='unbounded'>
+    <element ref='t:p'/>
+   </sequence>
+   <attribute name='id' type='ID' use='required'/>
+  </complexType>
+ </element>
+
+ <element name='textcontentobj'>
+  <complexType>
+   <attribute name='idref' type='IDREF' use='required'/>
+  </complexType>
+ </element>
+
+ <element name='p'>
+  <complexType>
+   <element ref='t:parstyle'/>
+   <sequence maxOccurs='unbounded'>
+    <element ref='t:span'/>
+   </sequence>
+  </complexType>
+ </element>
+
+ <element name='tab'>
+  <complexType>
+   <attribute name='parid' type='IDREF' use='required'/>
+   <attribute name='location' type='string' use='required'/>
+   <attribute name='spacing' type='string' use='default' value='10'/>
+   <attribute name='spacing-unit' use='default' value='pt'>
+    <simpleType>
+     <restriction base='string'>
+      <enumeration value='pt'/>
+      <enumeration value='px'/>
+      <enumeration value='pica'/>
+      <enumeration value='in'/>
+      <enumeration value='mm'/>
+      <enumeration value='cm'/>
+      <enumeration value='c'/>
+     </restriction>
+    </simpleType>
+   </attribute>
+   <attribute name='type' use='default' value='left'>
+    <simpleType>
+     <restriction base='string'>
+      <enumeration value='left'/>
+      <enumeration value='right'/>
+      <enumeration value='center'/>
+      <enumeration value='decimal'/>
+      <enumeration value='comma'/>
+      <enumeration value='char'/>
+     </restriction>
+    </simpleType>
+   </attribute>
+   <attribute name='tabchar' type='string' use='optional'/>
+  </complexType>
+ </element>
+
+ <element name='table'>
+  <complexType>
+   <sequence>
+    <element ref='t:table-caption' minOccurs='0' maxOccurs='1'/>
+    <element ref='t:table-row' maxOccurs='unbounded'/>
+   </sequence>
+   <attribute name='id' type='ID' use='required'/>
+   <attribute name='table-style' type='IDREF' use='required'/>
+   <attribute name='canvasorigin' use='default' value='ltop'>
+    <simpleType>
+     <restriction base='string'>
+      <enumeration value='ltop'/>
+      <enumeration value='rtop'/>
+      <enumeration value='lbottom'/>
+      <enumeration value='rbottom'/>
+      <enumeration value='center'/>
+     </restriction>
+    </simpleType>
+   </attribute>
+   <attribute name='xorigin' type='string' use='default' value='40'/>
+   <attribute name='yorigin' type='string' use='default' value='40'/>
+   <attribute name='originunit' use='default' value='pt'>
+    <simpleType>
+     <restriction base='string'>
+      <enumeration value='pt'/>
+      <enumeration value='px'/>
+      <enumeration value='pica'/>
+      <enumeration value='in'/>
+      <enumeration value='mm'/>
+      <enumeration value='cm'/>
+      <enumeration value='c'/>
+     </restriction>
+    </simpleType>
+   </attribute>
+   <attribute name='width' type='string' use='default' value='100'/>
+   <attribute name='height' type='string' use='default' value='150'/>
+   <attribute name='sizeunit' use='default' value='pt'>
+    <simpleType>
+     <restriction base='string'>
+      <enumeration value='pt'/>
+      <enumeration value='px'/>
+      <enumeration value='pica'/>
+      <enumeration value='in'/>
+      <enumeration value='mm'/>
+      <enumeration value='cm'/>
+      <enumeration value='c'/>
+     </restriction>
+    </simpleType>
+   </attribute>
+   <attribute name='basepoint' use='default' value='ltop'>
+    <simpleType>
+     <restriction base='string'>
+      <enumeration value='ltop'/>
+      <enumeration value='rtop'/>
+      <enumeration value='lbottom'/>
+      <enumeration value='rbottom'/>
+      <enumeration value='center'/>
+     </restriction>
+    </simpleType>
+   </attribute>
+   <attribute name='rotation' type='string' use='default' value='0'/>
+   <attribute name='printable' use='default' value='yes'>
+    <simpleType>
+     <restriction base='string'>
+      <enumeration value='yes'/>
+      <enumeration value='no'/>
+     </restriction>
+    </simpleType>
+   </attribute>
+   <attribute name='locked' use='default' value='no'>
+    <simpleType>
+     <restriction base='string'>
+      <enumeration value='yes'/>
+      <enumeration value='no'/>
+     </restriction>
+    </simpleType>
+   </attribute>
+   <attribute name='size-locked' use='default' value='no'>
+    <simpleType>
+     <restriction base='string'>
+      <enumeration value='yes'/>
+      <enumeration value='no'/>
+     </restriction>
+    </simpleType>
+   </attribute>
+   <attribute name='round-corners' type='string' use='default' value='0'/>
+   <attribute name='columnnumber' type='string' use='optional'/>
+   <attribute name='rownumber' type='string' use='optional'/>
+   <attribute name='level' type='string' use='default' value='0'/>
+   <attribute name='text-flows-around' use='default' value='no'>
+    <simpleType>
+     <restriction base='string'>
+      <enumeration value='yes'/>
+      <enumeration value='no'/>
+     </restriction>
+    </simpleType>
+   </attribute>
+   <attribute name='use-bounding-box' use='default' value='no'>
+    <simpleType>
+     <restriction base='string'>
+      <enumeration value='yes'/>
+      <enumeration value='no'/>
+     </restriction>
+    </simpleType>
+   </attribute>
+   <attribute name='use-contour-line' use='default' value='no'>
+    <simpleType>
+     <restriction base='string'>
+      <enumeration value='yes'/>
+      <enumeration value='no'/>
+     </restriction>
+    </simpleType>
+   </attribute>
+   <attribute name='line-color' type='string' use='default' value='none'/>
+   <attribute name='fill-color' type='string' use='default' value='none'/>
+  </complexType>
+ </element>
+
+ <element name='tableobj'>
+  <complexType>
+   <attribute name='idref' type='IDREF' use='required'/>
+  </complexType>
+ </element>
+
+ <element name='table-caption'>
+  <complexType>
+   <sequence>
+    <element ref='t:textcontentobj' minOccurs='0' maxOccurs='unbounded'/>
+   </sequence>
+  </complexType>
+ </element>
+
+ <element name='table-row'>
+  <complexType>
+   <sequence>
+    <element ref='t:table-cell' maxOccurs='unbounded'/>
+   </sequence>
+  </complexType>
+ </element>
+
+ <element name='table-cell'>
+  <complexType>
+   <sequence>
+    <element ref='t:textcontentobj' minOccurs='0' maxOccurs='unbounded'/>
+   </sequence>
+   <attribute name='table-cellstyle' type='IDREF' use='required'/>
+   <attribute name='rowspan' type='string' use='default' value='1'/>
+   <attribute name='colspan' type='string' use='default' value='1'/>
+  </complexType>
+ </element>
+
+ <element name='svgcontentobj'>
+  <complexType>
+   <attribute name='idref' type='IDREF' use='required'/>
+  </complexType>
+ </element>
+
+ <element name='epscontentobj'>
+  <complexType>
+   <attribute name='idref' type='IDREF' use='required'/>
+  </complexType>
+ </element>
+
+ <element name='svgcontent'>
+  <complexType>
+   <sequence maxOccurs='unbounded'>
+    <element ref='t:svg'/>
+   </sequence>
+   <attribute name='id' type='ID' use='required'/>
+  </complexType>
+ </element>
+
+ <element name='svg'>
+  <complexType>
+   <sequence>
+   <any namespace='http://www.w3.org/namespace/'/>
+   </sequence>
+  </complexType>
+ </element>
+
+ <element name='epscontent'>
+  <complexType>
+   <sequence maxOccurs='unbounded'>
+    <element ref='t:eps'/>
+   </sequence>
+   <attribute name='id' type='ID' use='required'/>
+  </complexType>
+ </element>
+
+ <element name='eps'>
+  <complexType>
+   <sequence>
+   <any namespace='http://www.w3.org/namespace/'/>
+   </sequence>
+  </complexType>
+ </element>
+</schema>

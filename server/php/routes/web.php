@@ -16,3 +16,11 @@
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
+
+$router->get('projects/list', function () use ($router) {
+    return $router->app->version();
+});
+
+$router->get('/projects/load/:id', function () use ($router) {
+    return $router->app->version();
+});

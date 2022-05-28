@@ -7,7 +7,6 @@ import (
 	"net/http"
 	"os"
 
-	"server/rest"
 	"github.com/gin-gonic/gin"
 	// "github.com/gin-contrib/sessions"
 )

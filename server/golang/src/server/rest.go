@@ -1,11 +1,16 @@
 package server
 
 import (
-"github.com/gin-gonic/gin"
+	"fmt"
+	"net/http"
+	"os"
+
+	"github.com/gin-gonic/gin"
+	scribus "github.com/probonopd/go-scribus"
+	"github.com/sjustesen/scriflow/core/config"
 )
 
-
-func MountRoutes(r *gin) {
+func MountRoutes(r *gin.Engine) {
 
 	r.GET("/", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "index.tmpl", map[string]interface{}{})
@@ -31,7 +36,7 @@ func MountRoutes(r *gin) {
 		})
 
 		restricted.GET("list", func(c *gin.Context) {
-			systempath, err := os.Getwd()
+			//systempath, err := os.Getwd()
 			c.JSON(http.StatusOK, "list projects")
 		})
 
