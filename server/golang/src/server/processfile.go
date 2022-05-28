@@ -1,8 +1,6 @@
-package server
+package packagefile
 
-import (
-	//"github.com/probonopd/go-scribus"
-)
+//"github.com/probonopd/go-scribus"
 
 func Init() {
 	//doc, err := scribus.NewScribusDocumentFromFile(configuration.GetProjectPath() + "Document-1.sla")

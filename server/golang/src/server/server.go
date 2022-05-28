@@ -8,6 +8,7 @@ import (
 	"os"
 
 	"github.com/gin-gonic/gin"
+	rest "github.com/sjustesen/scriflow/server/rest"
 	// "github.com/gin-contrib/sessions"
 )
 
