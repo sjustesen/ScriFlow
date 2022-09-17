@@ -2,9 +2,8 @@
 
 PROJECTDIR="$(pwd)"
 
-echo $PROJECTDIR
 echo Building server and running...
-cd server/src && make build
+cd "server/golang/src/" && ./scriflow
 cd $PROJECTDIR
 
 
