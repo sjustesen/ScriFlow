@@ -12,7 +12,9 @@ After that time I thought to myself that it would be cool to try to build an eco
  user. (^Simon) 
 
 ## Project Outline
-The project is still in its infancy, and consists of two parts, a React-powered clientside app being the frontend GUI, and a lightweight server written in Go. The server will act as "middleware" maintaining connections for authenticated project users while providing realtime updates via the WebSocket protocol
+The consists of two parts, a React-powered clientside app being the frontend GUI, and a lightweight server written in Go. 
+The server will act as a backend maintaining connections for authenticated project users while also serving REST requests and responses.
+We will also explore the opportunity to be providing realtime updates back and fourth via the WebSocket protocol
 
 ## Contributions always welcome
 You're always welcome to participate in the project. Download the code and start hacking. In order to avoid that people are working on the same features,
