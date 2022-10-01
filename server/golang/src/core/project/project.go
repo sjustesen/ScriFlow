@@ -10,23 +10,18 @@ import (
 
 func ListScribusProjects() []string {
 	var files []string
-	err := filepath.Walk(config.GetProjectPath(), func(path string, fileinfo os.FileInfo, err error) error {
+	filepath.Walk(config.GetProjectPath(), func(path string, fileinfo os.FileInfo, err error) error {
 		if err != nil {
+			fmt.Println("FilePath Walking Error")
 			fmt.Println(err)
 			return err
 		}
 
 		if !fileinfo.IsDir() && filepath.Ext(path) == ".sla" {
-			files = append(files)
+			files = append(files, path)
 		}
 		return nil
 	})
-
-	if err != nil {
-		for _, file := range files {
-			fmt.Println(file)
-		}
-	}
 
 	return files
 }

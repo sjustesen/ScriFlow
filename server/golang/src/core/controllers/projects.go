@@ -1,7 +1,6 @@
 package controllers
 
 import (
-	"encoding/json"
 	"fmt"
 	"io"
 	"log"
@@ -20,17 +19,17 @@ func MountProjectRoutes(r *gin.RouterGroup) {
 	// TODO: Restrict Access
 	r.GET("list", func(c *gin.Context) {
 		files := project.ListScribusProjects()
-		if files == nil {
-			json, _ := json.Marshal(files)
-			c.JSON(http.StatusOK, json)
+		if files != nil {
+			c.JSON(http.StatusOK, files)
+		} else {
+			c.JSON(http.StatusOK, nil)
 		}
 
 	})
 
 	// This route loads and parses a single Scribus file
 	r.GET("load/:id", func(c *gin.Context) {
-		systempath, _ := os.Getwd()
-		doc, err := scribus.NewScribusDocumentFromFile(systempath + config.GetProjectPath() + "/doc1.sla")
+		doc, err := scribus.NewScribusDocumentFromFile(config.GetProjectPath() + "/doc1.sla")
 		if err != nil {
 			fmt.Println(err)
 			fmt.Println("Couldn't load XML file")

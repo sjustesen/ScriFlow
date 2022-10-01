@@ -1,18 +1,31 @@
 package config
 
+import (
+	"os"
+)
+
 const (
 	ProjectFolder   = "/Projects"
 	TemplatesFolder = "/Templates"
-	dsn = "simon:strongpass@tcp(127.0.0.1:3306)/scriflow?charset=utf8mb4&parseTime=True&loc=Local"
-
+	dsn             = "simon:strongpass@tcp(127.0.0.1:3306)/scriflow?charset=utf8mb4&parseTime=True&loc=Local"
 )
+
+func GetSystemPath() string {
+	var path = ""
+	path, err := os.Getwd()
+	if err != nil {
+		return err.Error()
+	}
+	return path
+}
 
 func GetDatabaseDSN() string {
 	return dsn
 }
 
 func GetProjectPath() string {
-	return ProjectFolder
+	path, _ := os.Getwd()
+	return path + ProjectFolder
 }
 
 func GetTemplatesFolder() string {
