@@ -2,10 +2,6 @@ package server
 
 import (
 	"fmt"
-	"io"
-	"log"
-	"net/http"
-	"os"
 
 	"github.com/gin-gonic/gin"
 	// "github.com/gin-contrib/sessions"
@@ -39,30 +35,7 @@ func Bootup() {
 
 	r.LoadHTMLGlob("./templates/*")
 
-	MountRoutes(r)
+	mountRoutes(r)
 
 	r.Run() // listen and serve o
-}
-
-func uploadfile(c *gin.Context) {
-	file, header, err := c.Request.FormFile("file")
-	filename := header.Filename
-	out, err := os.Create("public/" + filename)
-	defer out.Close()
-
-	_, err = io.Copy(out, file)
-
-	if err != nil {
-		log.Fatal(err)
-		c.String(http.StatusBadRequest, fmt.Sprintf("file err : %s", err.Error()))
-		return
-	}
-
-}
-
-func profile(c *gin.Context) {
-}
-
-func AuthRequired(c *gin.Context) {
-	// todo
 }

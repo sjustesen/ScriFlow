@@ -3,6 +3,8 @@ package server
 import (
 	"encoding/json"
 	"fmt"
+	"io"
+	"log"
 	"net/http"
 	"os"
 
@@ -13,22 +15,23 @@ import (
 	"github.com/sjustesen/scriflow/core/project"
 )
 
-func MountRoutes(r *gin.Engine) {
+func mountRoutes(r *gin.Engine) {
 
 	r.GET("/", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "index.tmpl", map[string]interface{}{})
 	})
 
 	api := r.Group("/api")
-	api.Use(AuthRequired)
-	{
-		api.GET("loadfile", profile)
-	}
+	api.Use(func(c *gin.Context) {
+		api.GET("loadfile")
+	})
 
 	users := r.Group("/users")
 	users.Use(AuthRequired)
 	{
-		users.GET("/me", profile)
+		users.GET("/me", func(c *gin.Context) {
+
+		})
 	}
 
 	restricted := r.Group("/projects")
@@ -48,7 +51,7 @@ func MountRoutes(r *gin.Engine) {
 		})
 
 		restricted.GET("load/:id", func(c *gin.Context) {
-			systempath, err := os.Getwd()
+			systempath, _ := os.Getwd()
 			doc, err := scribus.NewScribusDocumentFromFile(systempath + config.GetProjectPath() + "/doc1.sla")
 			if err != nil {
 				fmt.Println(err)
@@ -61,6 +64,24 @@ func MountRoutes(r *gin.Engine) {
 			c.HTML(http.StatusOK, "upload.tmpl", gin.H{})
 		})
 
-		restricted.POST("/upload", uploadfile)
+		restricted.POST("/upload", func(c *gin.Context) {
+			file, header, err := c.Request.FormFile("file")
+
+			if err != nil {
+				log.Fatal(err)
+				c.String(http.StatusBadRequest, fmt.Sprintf("file err : %s", err.Error()))
+				return
+			}
+
+			filename := header.Filename
+			out, _ := os.Create("public/" + filename)
+			io.Copy(out, file)
+			out.Close()
+
+		})
 	}
+}
+
+func AuthRequired(c *gin.Context) {
+
 }
