@@ -7,7 +7,7 @@ import (
 const (
 	ProjectFolder   = "/Projects"
 	TemplatesFolder = "/Templates"
-	dsn             = "simon:strongpass@tcp(127.0.0.1:3306)/scriflow?charset=utf8mb4&parseTime=True&loc=Local"
+	dsn             = "simon:verystrongpassword!@tcp(127.0.0.1:3306)/scriflow?charset=utf8mb4&parseTime=True&loc=Local"
 )
 
 func GetSystemPath() string {

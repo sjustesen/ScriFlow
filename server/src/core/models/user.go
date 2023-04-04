@@ -6,7 +6,7 @@ import (
 )
 
 type User struct {
-	ID          uint `gorm:"primaryKey"`
+	Id          uint `gorm:"primaryKey"`
 	Name        string
 	ActivatedAt sql.NullTime
 	CreatedAt   time.Time
@@ -16,5 +16,5 @@ type User struct {
 type UserGroups struct {
 	Id           uint `gorm:"primaryKey"`
 	Name         string
-	UsersInGroup []User
+	UsersInGroup []User `gorm:"foreignKey:Id;references:Id"`
 }

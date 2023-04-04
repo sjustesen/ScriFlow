@@ -1,13 +1,12 @@
 SHELL := /bin/bash
 DEFAULT = help
 
-BINARY = scriflow-server
+BINARY = scriflow
 PROJECTPATH = $(pwd)/
 BUILDPATH = $(pwd)build/
 
 DEBUGEXE = $(PROJECTPATH)
 
-COMPILER = rustc
 BUILDER = go
 
 Q = @ 	# SILENCE the Bash commands ;)
@@ -36,11 +35,11 @@ run:
 	
 build:
 	@echo "Building using $(BUILDER)..."
-	$(Q)$(shell $(BUILDER) -o $(BINARY) build)
+	$(Q)$(shell $(BUILDER) -o $(BINARY) ./../../build)
 	@echo "Moving binary into build directory"
 
-	$(Q)$(shell mkdir -p build/)
-	$(Q)$(shell mv $(BINARY) build/)
+	# $(Q)$(shell mkdir -p build/)
+	# $(Q)$(shell mv $(BINARY) build/)
 
 clean-build:
 	@echo "Cleaning build folder... $(BUILDPATH)"
