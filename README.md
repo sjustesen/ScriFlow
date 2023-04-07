@@ -14,15 +14,10 @@ We will also explore the opportunity to be providing realtime updates back and f
 You're always welcome to participate in the project. Download the code and start hacking. In order to avoid that people are working on the same features,
 it might be a good idea to post your ideas in the discussion forum before getting knee-deep in work.
 
-## Endgoals
+## Goals
 * Create a CRUD system to manage projects
-* Support the same project types as [Scribus](https://en.wikipedia.org/wiki/Scribus)*  
+* Support the same filetypes as open systems like [Scribus](https://en.wikipedia.org/wiki/Scribus), Collabora Office, etc.
 * Make the app look and feel as close as possible a native offline app.
-* Create a permission system allowing for finegrained control regarding what actions project participants is allowed to make.
-* Create a media library so users can share assets between projects
 * Allow authenticated users to control the canvas	
-* Role-based authentication (based on go module Authority)
-* Extend [Scribus](https://en.wikipedia.org/wiki/Scribus)*
- with a plugin to support ScriFlow (this would be huge!]
-* Extend [Scribus](https://en.wikipedia.org/wiki/Scribus)*
- and ScriFlow to be able to use cloud storage platforms like NextCloud
+* Extend [Scribus](https://en.wikipedia.org/wiki/Scribus) with a plugin to support uploading/downloading to/from ScriFlow
+* Enable ScriFlow to be able to use cloud platforms like NextCloud for storage
