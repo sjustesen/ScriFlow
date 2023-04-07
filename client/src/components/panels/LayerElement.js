@@ -13,7 +13,7 @@ class LayerElement extends React.Component {
 
     render() {
         return (
-        <div className='togglebutton'><div>{this.props.item.key}</div></div> 
+        <div className='togglebutton'><div data-item={this.props.item.key}>{this.props.item.name}</div></div> 
         )
     }
 

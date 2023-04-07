@@ -11,7 +11,7 @@
     MIT Licensed
     */
 
-import Layer from "../../components/panels/LayerElement";
+import LayerElement from "../../components/panels/LayerElement";
 
 export default class SLADocument {
 
@@ -22,16 +22,15 @@ export default class SLADocument {
     // get the elements of the SLADoc by property name
 
     getElement(propname) {
-        let result = [];
         let xmlelements = this.xmldata.querySelectorAll(propname);
 
-        if (xmlelements.length === 0) {
+        if (xmlelements.length === 0 || xmlelements == null) {
             console.log("core.filehandling.SLADocument: Sorry, there are no tag(s) named " +propname);
             return;
         }
         
         let elementId = 0;
-        
+        let elementData = [];        
         for (var element of xmlelements) {
             let elementName = 'element_' + elementId;
             let attributes = {};
@@ -46,16 +45,15 @@ export default class SLADocument {
                 }
             };
            
-            result.push({ 
+            elementData.push({ 
                 id: elementName.trim().toLowerCase().replace(' ', '_'),
                 name: elementName, 
                 type: propname.toLowerCase(), 
                 attributes: attributes
             })
-
             elementId++;
         }
-        return result;
+        return elementData;
     }
 
     // stub
@@ -115,18 +113,26 @@ export default class SLADocument {
 
     getLayers() {
         const layerdata = this.xmldata.querySelectorAll('LAYERS');
+        /* if (layerdata.length > 0 || layerdata == null) {
+            return;
+        } */
        
         let layers = [];
         let node_count = 0;
-
+        
         layerdata.forEach(layer_node => {
             let nodeAttributes = [];
+            let layer_label = '';
+        
             for (let i = 0; i < layer_node.attributes.length; i++) {
                 let attr = layer_node.attributes.item(i);
                 nodeAttributes.push({ attribute: attr.nodeName.toLowerCase(), value: attr.nodeValue});
+                if (attr.nodeName.toLowerCase() == 'name') {
+                    layer_label = attr.nodeValue;
+                }
             };
-            let layer = new Layer('layer_' + node_count, nodeAttributes);
-            layers.push({ key: 'layer_'+node_count, properties: layer })
+            let layer = new LayerElement('layer_' + node_count, nodeAttributes);
+            layers.push({ name: layer_label, key: 'layer_'+node_count, properties: layer })
             node_count++;
         });
         return layers;

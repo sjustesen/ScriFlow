@@ -18,7 +18,7 @@ export default class SFCanvasController {
       let grandparent = document.querySelector('.canvascontainer');
       let parent = document.querySelector('.canvas');
 
-      let width = grandparent.clientWidth - 60;
+      let width = grandparent.clientWidth - 100;
 
       parent.setAttribute('style', 'width: ' + width + 'px');
 
@@ -27,7 +27,7 @@ export default class SFCanvasController {
       this.canvas.setWidth(parent.clientWidth);
 
       window.addEventListener('resize', (e) => {
-         let width = grandparent.clientWidth - 60;
+         let width = grandparent.clientWidth - 100;
          parent.setAttribute('style', 'width: ' + width + 'px');
          this.canvas.setHeight(parent.clientHeight);
          this.canvas.setWidth(parent.clientWidth);
@@ -41,7 +41,7 @@ export default class SFCanvasController {
 
       })
       window.addEventListener('LayersPanelChanged', () => {
-         console.log('Update Layer Panel signaled..')
+         console.log('Layers Panel change signaled..')
       })
 
       window.addEventListener('CanvasRedrawn', (event) => {
