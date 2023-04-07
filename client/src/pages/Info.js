@@ -3,7 +3,7 @@ import '../App.css';
 
 import Topmenu from '../components/navigation/Topmenu';
 import Header from '../components/Header.js';
-import Toolbox from '../components/Toolbox.js';
+import LayersPanel from '../components/panels/LayersPanel';
 
 function Info() {
   return (
@@ -12,7 +12,7 @@ function Info() {
         <Header />
         <section className="columns">
           <div className="column is-10">test</div>
-          <div className="column"><Toolbox /></div>
+          <div className="column"><LayersPanel /></div>
         </section>
       </div>
   );

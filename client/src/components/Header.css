@@ -3,14 +3,18 @@
 }
 
 .menuitem {
-    border-bottom: 1px solid gray;
-    border-right: 1px solid gray;
-    border-top: 1px solid white;
-    border-left: 1px solid white;
-    background-color: gray;
+    border-right: 1px solid #333;
+    border-left: 1px solid #333;
+    background-color: #222;
+    color:aliceblue;
     padding: 7px;
     height: 45px;
     width: 45px;
+}
+
+.menuitem img {
+    color: white;
+    mask: fill;
 }
 
 .menuitem:hover {
@@ -18,9 +22,7 @@
 }
 
 .menuitem:active {
-    border-top: 1px solid white;
     border-left: 1px solid white;
-    border-bottom: 1px solid gray;
     border-right: 1px solid gray;
     background-color: lightblue;
 }

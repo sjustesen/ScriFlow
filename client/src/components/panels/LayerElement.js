@@ -1,6 +1,6 @@
 import React from 'react';
 
-class Layer extends React.Component {
+class LayerElement extends React.Component {
     // eslint-disable-next-line
     constructor(props) {
         super(props);
@@ -18,4 +18,4 @@ class Layer extends React.Component {
     }
 
 }
-export default Layer;
+export default LayerElement;

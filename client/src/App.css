@@ -1,15 +1,52 @@
 html { background: #ccc; }
 
+body {
+  font-size: 10pt;
+}
+
 .App {
   text-align: center;
-   background-color: #aaa;
+   background-color: #222;
    min-width: 100%;
+   font-size: 10pt;
+   
 }
 
 .App-header {
   min-height: 90vh;
   display: flex;
   color: white;
+}
+
+.navbar {
+  background-color: #000 !important;
+  color: #fff;
+}
+
+.navbar-menu {
+  height: 6dvh;
+}
+
+.navbar-link,
+.navbar a {
+  color: #fff !important;
+}
+
+.navbar-item:hover,
+.navbar-item.has-dropdown .navbar-link:hover {
+    background: none !important;
+}
+
+.box {
+  background: #000 !important;
+  color: #fff;
+}
+
+.tabs,
+.tabs a,
+.togglebutton {
+  font-size: 10pt;
+  color: #fff !important;
 }
 
 .togglebutton {
@@ -37,3 +74,4 @@ html { background: #ccc; }
 .swatches, .layers {
   display: none;
 }
+

@@ -11,8 +11,7 @@
     MIT Licensed
     */
 
-import Layer from "../../components/Layer";
-import SLAUtils from "../../utils/slautils";
+import Layer from "../../components/panels/LayerElement";
 
 export default class SLADocument {
 
@@ -27,7 +26,7 @@ export default class SLADocument {
         let xmlelements = this.xmldata.querySelectorAll(propname);
 
         if (xmlelements.length === 0) {
-            console.log("utils.SLADocument: Sorry, there are no tag(s) named " +propname);
+            console.log("core.filehandling.SLADocument: Sorry, there are no tag(s) named " +propname);
             return;
         }
         

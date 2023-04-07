@@ -1,8 +1,8 @@
 import React from 'react'
-import Color from './Color';
-import Layer from './Layer';
+import Color from '../Color';
+import LayerElement from './LayerElement';
 
-class Toolbox extends React.Component {
+class LayersPanel extends React.Component {
     // eslint-disable-next-line
     constructor(props) {
         super(props)
@@ -62,7 +62,7 @@ class Toolbox extends React.Component {
             <div id="layers">
                 <div className="LayerStack">
                     {this.state.layers.map((item, index) =>
-                        <Layer key={index} item={item}></Layer>
+                        <LayerElement key={index} item={item}></LayerElement>
                     )}
                 </div>
             </div>
@@ -78,4 +78,4 @@ class Toolbox extends React.Component {
 
 }
 
-export default Toolbox;
+export default LayersPanel;

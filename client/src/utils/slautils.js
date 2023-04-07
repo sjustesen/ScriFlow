@@ -5,7 +5,7 @@
     MIT Licensed
     */
 
-    import Layer from "../components/Layer";
+    import Layer from "../components/panels/LayerElement";
 
     export default class SLAUtils {
     }

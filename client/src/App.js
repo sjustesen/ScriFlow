@@ -5,7 +5,8 @@ import Topmenu from './components/navigation/Topmenu';
 import Header from './components/Header.js';
 import SFCanvas from './components/Canvas.js';
 import LoadFileModal from './components/dialogs/LoadFileModal';
-import Toolbox from './components/Toolbox.js';
+import LayersPanel from './components/panels/LayersPanel';
+import MasterPagePanel from './components/panels/MasterPages'
 
 class App extends React.Component {
   constructor(props) {
@@ -26,7 +27,8 @@ class App extends React.Component {
         <section className="columns">
           <div className="column is-10"><SFCanvas name="c" /></div>
           <div className="column">
-            <Toolbox />
+            <MasterPagePanel />
+            <LayersPanel />
           <button onClick={this.HandleOpenModal}>Demo Load file</button>
           </div>
         </section>
