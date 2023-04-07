@@ -1,7 +1,7 @@
 import React from 'react';
 import 'bulma/css/bulma.min.css';
 import EventService from '../../services/eventservice';
-import SLADocument from '../../utils/sladocument';
+import SLADocument from '../../core/filehandling/sladocument';
 import DocumentService from '../../services/documentservice';
 
 class LoadFileModal extends React.Component {
