@@ -11,8 +11,8 @@
     MIT Licensed
     */
 
-import Layer from "../components/Layer";
-import SLAUtils from "./slautils";
+import Layer from "../../components/Layer";
+import SLAUtils from "../../utils/slautils";
 
 export default class SLADocument {
 
@@ -27,7 +27,8 @@ export default class SLADocument {
         let xmlelements = this.xmldata.querySelectorAll(propname);
 
         if (xmlelements.length === 0) {
-            throw Error("Sorry, there are no tag(s) named " +propname);
+            console.log("utils.SLADocument: Sorry, there are no tag(s) named " +propname);
+            return;
         }
         
         let elementId = 0;
@@ -72,8 +73,10 @@ export default class SLADocument {
 
     getPageObjects() {
         let pageobjects = this.getElement('PAGEOBJECT');
-        // note: This has subnodes
-        return pageobjects;
+        if (pageobjects != null)
+            return pageobjects;
+        
+        return null;
     }
 
     getMasterpage(uid) {
