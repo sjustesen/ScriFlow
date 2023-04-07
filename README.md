@@ -1,17 +1,9 @@
-# ScriFlow
-A web-based workflow system for [Scribus](https://en.wikipedia.org/wiki/Scribus)*
+# ScriFlow (working title)
+A DTP workflow system for the web
 
 ** This software is very, very alpha version-ish - expect nothing to work at the moment, download the source if you want to hack on it. 
-Most development happens in the "openwc" branch - I got tired of dependency hell with the React based project on the main branch, however I intend to keep it around as I have some code to move out of it
 **
-
-This project is an attempt to make a workflow system, allowing multiple persons to work simultaneously on a Scribus project.
-I stumbled across Scribus many moons ago. However it wasn't until recently that I had the chance to actually use it for a real project.   
-After that time I thought to myself that it would be cool to try to build an ecosystem around it, just as people have done with commercially available products. But whereas traditional companies often try to force vendor lockins upon its users, we do the opposite: Let people maintain their software freedom!
-
-Not affiliated with the main [Scribus](https://en.wikipedia.org/wiki/Scribus)*
- project. I am, though, a happy [Scribus](https://en.wikipedia.org/wiki/Scribus)*
- user. (^Simon) 
+This project is an attempt to make a workflow system, allowing multiple persons to work simultaneously on a DTP project.
 
 ## Project Outline
 The consists of two parts, a React-powered clientside app being the frontend GUI, and a lightweight server written in Go. 
