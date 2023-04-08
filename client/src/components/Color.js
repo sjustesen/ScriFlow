@@ -15,28 +15,25 @@ class Color extends React.Component {
             g: 0,
             b: 0
         }
-       
+        
         if (colorspace.toUpperCase() == 'CMYK') {
             color = ColorUtil.convertCMYKtoRGB(attribs.c, attribs.m, attribs.y, attribs.k)
-        } else { // Color is RGB or unknown
+        } else {  
             color.r = attribs.r;
             color.g = attribs.g; 
-            color.b = attribs.b;
+            color.b = attribs.b;       
         }
-        return [
-            color.r,
-            color.g,
-            color.b
-        ]
+
+        return `${color.r},${color.g},${color.b}`;
         
     }
 
     render() {
-        let attribs = this.props.item;
-        let colorspace = (attribs["space"] == 'CMYK') ? 'CMYK' : 'RGB';
-        var swatch_color = this.showColor(colorspace, attribs);
+        let item = this.props.item;
+        let colorspace = (item.attributes["space"] == 'RGB') ? 'RGB' : 'CMYK';
+        var swatch_color = this.showColor(colorspace, item.attributes);
         let name = this.props.item.name;
-    
+
         return (
         <div className='togglebutton'>
             <div className='colorbox' style={{backgroundColor: `rgb(${swatch_color.toString()})`}}></div>
