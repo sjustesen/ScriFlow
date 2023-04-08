@@ -3,7 +3,7 @@
 PROJECTDIR="$(pwd)"
 
 echo Starting server and running...
-cd "server/golang/src/" && ./scriflow
+cd "server/build/" && ./scriflow
 cd $PROJECTDIR
 
 echo Starting client... 
