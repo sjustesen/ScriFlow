@@ -86,18 +86,18 @@ export default class SFCanvasController {
 
    drawObject(objs) {
       objs.forEach(element => {
-         let element_metadata = new PageObject(parseInt(element.attributes.ptype), element.attributes);
+         let el = new PageObject(parseInt(element.attributes.ptype), element.attributes);
+         console.dir(el)
 
-         switch (element_metadata.getType()) {
+         switch (el.getType()) {
             case "text":
-               let pageobject = new fabric.Text('Hest', { left: 0, top: 0 });
-               this.canvas.add(pageobject);
+               this.canvas.add(new fabric.Text('Hest', { left: el.getX(), top: el.getY() }));
                break;
             case 5:
                break;
             case "polygon":
                let path = new fabric.Path(element.attributes.path);
-               path.set({ fill: element_metadata.getColor(), stroke: element_metadata.getStrokeColor(), opacity: 0.5 });
+               path.set({ fill: el.getColor(), stroke: el.getStrokeColor(), opacity: 0.5 });
                this.canvas.add(path);
                break;
             default:
