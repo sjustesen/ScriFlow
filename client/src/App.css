@@ -1,7 +1,15 @@
 html { background: #ccc; }
-
 body {
   font-size: 10pt;
+}
+/** COLORS **/
+.is-primary {
+  color: #485fc7 !important;
+}
+
+.primary-bg {
+  background: #485fc7 !important;
+  color: #fff !important;
 }
 
 .App {
@@ -16,6 +24,13 @@ body {
   min-height: 90vh;
   display: flex;
   color: white;
+}
+
+.logo {
+  font-size: 25px;
+  padding-left: 20px;
+  padding-right: 20px;
+  line-height: 30px;
 }
 
 .navbar {

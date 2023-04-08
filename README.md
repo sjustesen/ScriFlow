@@ -1,5 +1,5 @@
 # ScriFlow (working title)
-A DTP workflow system for the web
+A DTP / workflow system for the web
 
 ** This software is very, very alpha version-ish - expect nothing to work at the moment, download the source if you want to hack on it. 
 **

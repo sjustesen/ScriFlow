@@ -16,17 +16,7 @@ class Topmenu extends React.Component {
 
                     <Navbar.Item renderAs="a" href="#">
 
-                        <img
-
-                            src="https://bulma.io/images/bulma-logo.png"
-
-                            alt="Bulma: a modern CSS framework based on Flexbox"
-
-                            width="112"
-
-                            height="28"
-
-                        />
+                       <span className='logo'>Scriflow</span>
 
                     </Navbar.Item>
 
@@ -38,7 +28,7 @@ class Topmenu extends React.Component {
 
                     <Navbar.Container>
 
-                        <Navbar.Item hoverable={this.props.hoverable} active={this.props.itemAactive} href="#">
+                        <Navbar.Item hoverable={this.props.hoverable} active={this.props.itemActive} href="#">
 
                             <Navbar.Link arrowless={this.props.arrowless}>Files</Navbar.Link>
 
@@ -62,7 +52,7 @@ class Topmenu extends React.Component {
 
                     <Navbar.Container align="end">
 
-                        <Navbar.Item href="#"><Button color="primary">Log in</Button><Button color="secondary">Sign up</Button></Navbar.Item>
+                        <Navbar.Item href="#"><Button className="primary-bg">Log in</Button><Button color="secondary">Sign up</Button></Navbar.Item>
                         <Navbar.Item></Navbar.Item>
 
                     </Navbar.Container>
