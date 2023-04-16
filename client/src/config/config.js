@@ -4,8 +4,8 @@ export default class Config {
         this.projectDetails = 'http://localhost:8080/project/';
     }
 
-    getProjectsListUrl() = () => this.listProjectsUrl;
-    getProjectLoadUrl(id) {
+    getProjectsListUrl = () => this.listProjectsUrl;
+    loadProjectById(id) {
         return this.projectDetails + id;
     }
 }

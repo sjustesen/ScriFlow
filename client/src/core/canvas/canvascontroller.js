@@ -87,6 +87,10 @@ export default class SFCanvasController {
    }
 
    drawObject(objs) {
+      
+      if (objs == null)
+         return;
+
       objs.forEach(element => {
          let el = new PageObject(parseInt(element.attributes.ptype), element.attributes);
          console.dir(el)

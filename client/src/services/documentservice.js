@@ -14,7 +14,7 @@ export default class DocumentService {
 
 
     async loadFromUrl(id) {
-      var res =  await fetch(new Config().loadProjectByUrl(id))
+      var res =  await fetch(new Config().loadProjectById(id))
             .then(response => response.text())
             .then(fetched_data => {
                 let xmlutils = new XMLUtils()
