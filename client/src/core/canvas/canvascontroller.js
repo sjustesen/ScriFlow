@@ -106,8 +106,6 @@ export default class SFCanvasController {
                break;
          }
       });
-      // add object to the referenced canvas
-      //this.canvas.add(pageobject);
    }
 
 
