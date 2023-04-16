@@ -9,28 +9,30 @@ import SFText from '../drawing/text';
 export default class SFCanvasController {
 
    constructor() {
+      this.hrulerSize = 60;
+
       this.initCanvas();
       this.initGuides();
       this.registerCanvasEvents();
    }
 
    initCanvas() {
-      let grandparent = document.querySelector('.canvascontainer');
-      let parent = document.querySelector('.canvas');
+      let container = document.querySelector('.canvascontainer');
+      let canvas = document.querySelector('.canvas');
 
-      let width = grandparent.clientWidth - 100;
+      let width = container.clientWidth - this.hrulerSize;
 
-      parent.setAttribute('style', 'width: ' + width + 'px');
+      canvas.setAttribute('style', 'width: ' + width + 'px');
 
       this.canvas = new fabric.Canvas('c');
-      this.canvas.setHeight(parent.clientHeight);
-      this.canvas.setWidth(parent.clientWidth);
+      this.canvas.setHeight(canvas.clientHeight);
+      this.canvas.setWidth(canvas.clientWidth);
 
       window.addEventListener('resize', (e) => {
-         let width = grandparent.clientWidth - 100;
-         parent.setAttribute('style', 'width: ' + width + 'px');
-         this.canvas.setHeight(parent.clientHeight);
-         this.canvas.setWidth(parent.clientWidth);
+         let width = container.clientWidth - this.hrulerSize;
+         canvas.setAttribute('style', 'width: ' + width + 'px');
+         this.canvas.setHeight(canvas.clientHeight);
+         this.canvas.setWidth(canvas.clientWidth);
 
       })
    }
@@ -97,7 +99,7 @@ export default class SFCanvasController {
                break;
             case "polygon":
                let path = new fabric.Path(element.attributes.path);
-               path.set({ fill: el.getColor(), stroke: el.getStrokeColor(), opacity: 0.5 });
+               path.set({ fill: el.getColor(), stroke: el.getStrokeColor(), opacity: 1 });
                this.canvas.add(path);
                break;
             default:
