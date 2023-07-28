@@ -68,9 +68,9 @@ class LayersPanel extends React.Component {
             </div>
             <div id="swatches" style={{display: 'none'}}>
             <div className='ColorSwatches'>
-                {this.state.colors.map((item, index) =>
-                    <Color key={index} item={item}></Color>
-                )}
+                { this.state.colors ? this.state.colors.map((item, index) =>
+                    <Color key={index} item={item}></Color> ) : <Color></Color>
+                }
             </div>
             </div>
         </div>

@@ -17,6 +17,7 @@ export default class SLADocument {
 
     constructor(xmldata) {
         this.xmldata = xmldata;
+        console.dir(this.xmldata)
     }
 
     // get the elements of the SLADoc by property name

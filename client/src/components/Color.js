@@ -29,16 +29,17 @@ class Color extends React.Component {
     }
 
     render() {
-        let item = this.props.item;
+        if (this.props.item == null) return null;
+
+        let item = this.props.item;     
         let colorspace = (item.attributes["space"] == 'RGB') ? 'RGB' : 'CMYK';
         var swatch_color = this.showColor(colorspace, item.attributes);
         let name = this.props.item.name;
-
         return (
-        <div className='togglebutton'>
-            <div className='colorbox' style={{backgroundColor: `rgb(${swatch_color.toString()})`}}></div>
-            <div>{name}</div>
-        </div> 
+            <div className='togglebutton'>
+                <div className='colorbox' style={{backgroundColor: `rgb(${swatch_color.toString()})`}}></div>
+                <div>{name}</div>
+            </div>    
         )
     }
 

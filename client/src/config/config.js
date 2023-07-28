@@ -1,11 +1,6 @@
 export default class Config {
-    constructor() {
-        this.listProjectsUrl = 'http://localhost:8080/projects/list';
-        this.projectDetails = 'http://localhost:8080/project/';
-    }
-
-    getProjectsListUrl = () => this.listProjectsUrl;
-    loadProjectById(id) {
-        return this.projectDetails + id;
-    }
+    
+    static getProjectsListUrl = () => 'http://localhost:8080/projects/list';
+    
+    loadProjectById(id) { return `http://localhost:8080/project/${id}`; }
 }
